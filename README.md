@@ -2,6 +2,8 @@
 
 # sciurus17_description
 
+[![industrial_ci](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml/badge.svg?branch=main)](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml)
+
 [Sciurus17](https://rt-net.jp/products/sciurus17/)のURDFファイルを含むROSパッケージです。
 
 このROSパッケージは[rt-net/sciurus17_ros](https://github.com/rt-net/sciurus17_ros)から分離しました。

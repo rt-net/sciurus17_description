@@ -2,6 +2,8 @@
 
 # sciurus17_description
 
+[![industrial_ci](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml/badge.svg?branch=main)](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml)
+
 ROS package with URDF description macro for [Sciurus17](https://rt-net.jp/products/sciurus17/).
 
 This ROS packages was separated from [rt-net/sciurus17_ros](https://github.com/rt-net/sciurus17_ros).
