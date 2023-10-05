@@ -122,6 +122,13 @@
   <xacro:property name="JOINT_HAND_L_LOWER_LIMIT" value="${radians(-86)}"/>
   <xacro:property name="JOINT_HAND_L_UPPER_LIMIT" value="${radians(0)}"/>
 
+  <xacro:property name="COLOR_LINK_BASE" value="white"/>
+  <xacro:property name="COLOR_LINK_BODY" value="white"/>
+  <xacro:property name="COLOR_LINK_HEAD" value="white"/>
+  <xacro:property name="COLOR_LINK_ARM" value="white"/>
+  <xacro:property name="COLOR_LINK_HAND" value="red"/>
+  <xacro:property name="COLOR_LINK_CAMERA" value="white"/>
+
   <xacro:arg name="use_gazebo_simulation" default="false" />
   <xacro:arg name="load_trans1" default="false" />
   <xacro:arg name="load_trans2" default="false" />
@@ -184,9 +191,9 @@
     waist_yaw_lower_limit="${NAME_JOINT_BODY_UPPER_LIMIT}"
     waist_yaw_effort_limit="${EFFORT_LIMIT}"
     waist_yaw_velocity_limit="${VELOCITY_LIMIT}"
-    base_color="white"
-    body_color="white"
-    camera_color="white">
+    base_color="${COLOR_LINK_BASE}"
+    body_color="${COLOR_LINK_BODY}"
+    camera_color="${COLOR_LINK_CAMERA}">
   </xacro:sciurus17_body>
 
   <xacro:sciurus17_head
@@ -196,8 +203,8 @@
     neck_pitch_upper_limit="${JOINT_NECK_2_UPPER_LIMIT}"
     neck_joints_effort_limit="${EFFORT_LIMIT}"
     neck_joints_velocity_limit="${VELOCITY_LIMIT}"
-    head_color="white"
-    camera_color="white">
+    head_color="${COLOR_LINK_HEAD}"
+    camera_color="${COLOR_LINK_CAMERA}">
   </xacro:sciurus17_head>
 
   <xacro:sciurus17_right_arm
@@ -217,7 +224,7 @@
     arm_joint7_upper_limit="${JOINT_ARM_R_7_UPPER_LIMIT}"
     arm_joints_effort_limit="${EFFORT_LIMIT}"
     arm_joints_velocity_limit="${VELOCITY_LIMIT}"
-    arm_color="white">
+    arm_color="${COLOR_LINK_ARM}">
   </xacro:sciurus17_right_arm>
 
   <xacro:sciurus17_right_hand
@@ -225,7 +232,7 @@
     hand_joints_upper_limit="${JOINT_HAND_R_UPPER_LIMIT}"
     hand_joints_effort_limit="${EFFORT_LIMIT}"
     hand_joints_velocity_limit="${VELOCITY_LIMIT}"
-    hand_color="red">
+    hand_color="${COLOR_LINK_HAND}">
   </xacro:sciurus17_right_hand>
 
   <xacro:sciurus17_left_arm
@@ -245,7 +252,7 @@
     arm_joint7_upper_limit="${JOINT_ARM_L_7_UPPER_LIMIT}"
     arm_joints_effort_limit="${EFFORT_LIMIT}"
     arm_joints_velocity_limit="${VELOCITY_LIMIT}"
-    arm_color="white">
+    arm_color="${COLOR_LINK_ARM}">
   </xacro:sciurus17_left_arm>
 
   <xacro:sciurus17_left_hand
@@ -253,7 +260,7 @@
     hand_joints_upper_limit="${JOINT_HAND_L_UPPER_LIMIT}"
     hand_joints_effort_limit="${EFFORT_LIMIT}"
     hand_joints_velocity_limit="${VELOCITY_LIMIT}"
-    hand_color="red">
+    hand_color="${COLOR_LINK_HAND}">
   </xacro:sciurus17_left_hand>
 
 </robot>
