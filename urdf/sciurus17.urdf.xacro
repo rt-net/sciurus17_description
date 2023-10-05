@@ -15,6 +15,68 @@
     <color rgba="0.8984375 0.0 0.0703125 1"/>
   </material>
 
+  <xacro:property name="NAME_LINK_BASE" value="base_link"/>
+  <xacro:property name="NAME_LINK_BODY" value="body_link"/>
+
+  <xacro:property name="NAME_LINK_NECK_1" value="neck_yaw_link"/>
+  <xacro:property name="NAME_LINK_NECK_2" value="neck_pitch_link"/>
+
+  <xacro:property name="NAME_LINK_CAMERA" value="camera_link"/>
+  <xacro:property name="NAME_LINK_CHEST_CAMERA" value="chest_camera_link"/>
+
+  <xacro:property name="NAME_LINK_ARM_R_1" value="r_link1"/>
+  <xacro:property name="NAME_LINK_ARM_R_2" value="r_link2"/>
+  <xacro:property name="NAME_LINK_ARM_R_3" value="r_link3"/>
+  <xacro:property name="NAME_LINK_ARM_R_4" value="r_link4"/>
+  <xacro:property name="NAME_LINK_ARM_R_5" value="r_link5"/>
+  <xacro:property name="NAME_LINK_ARM_R_6" value="r_link6"/>
+  <xacro:property name="NAME_LINK_ARM_R_7" value="r_link7"/>
+  <xacro:property name="NAME_LINK_HAND_R_A" value="r_handA_link"/>
+  <xacro:property name="NAME_LINK_HAND_R_B" value="r_handB_link"/>
+  <xacro:property name="NAME_LINK_ARMARKER_R" value="r_link5_armarker"/>
+
+  <xacro:property name="NAME_LINK_ARM_L_1" value="l_link1"/>
+  <xacro:property name="NAME_LINK_ARM_L_2" value="l_link2"/>
+  <xacro:property name="NAME_LINK_ARM_L_3" value="l_link3"/>
+  <xacro:property name="NAME_LINK_ARM_L_4" value="l_link4"/>
+  <xacro:property name="NAME_LINK_ARM_L_5" value="l_link5"/>
+  <xacro:property name="NAME_LINK_ARM_L_6" value="l_link6"/>
+  <xacro:property name="NAME_LINK_ARM_L_7" value="l_link7"/>
+  <xacro:property name="NAME_LINK_HAND_L_A" value="l_handA_link"/>
+  <xacro:property name="NAME_LINK_HAND_L_B" value="l_handB_link"/>
+  <xacro:property name="NAME_LINK_ARMARKER_L" value="l_link5_armarker"/>
+
+  <xacro:property name="NAME_JOINT_BODY" value="waist_yaw_joint"/>
+  <xacro:property name="NAME_JOINT_BASE" value="base_link_to_world_joint"/>
+
+  <xacro:property name="NAME_JOINT_NECK_1" value="neck_yaw_joint"/>
+  <xacro:property name="NAME_JOINT_NECK_2" value="neck_pitch_joint"/>
+
+  <xacro:property name="NAME_JOINT_CAMERA" value="head_camera_joint"/>
+  <xacro:property name="NAME_JOINT_CHEST_CAMERA" value="chest_camera_joint"/>
+
+  <xacro:property name="NAME_JOINT_ARM_R_1" value="r_arm_joint1"/>
+  <xacro:property name="NAME_JOINT_ARM_R_2" value="r_arm_joint2"/>
+  <xacro:property name="NAME_JOINT_ARM_R_3" value="r_arm_joint3"/>
+  <xacro:property name="NAME_JOINT_ARM_R_4" value="r_arm_joint4"/>
+  <xacro:property name="NAME_JOINT_ARM_R_5" value="r_arm_joint5"/>
+  <xacro:property name="NAME_JOINT_ARM_R_6" value="r_arm_joint6"/>
+  <xacro:property name="NAME_JOINT_ARM_R_7" value="r_arm_joint7"/>
+  <xacro:property name="NAME_JOINT_HAND_R_A" value="r_hand_joint"/>
+  <xacro:property name="NAME_JOINT_HAND_R_B" value="r_hand_mimic_joint"/>
+  <xacro:property name="NAME_JOINT_ARMARKER_R" value="r_arm_armarker"/>
+
+  <xacro:property name="NAME_JOINT_ARM_L_1" value="l_arm_joint1"/>
+  <xacro:property name="NAME_JOINT_ARM_L_2" value="l_arm_joint2"/>
+  <xacro:property name="NAME_JOINT_ARM_L_3" value="l_arm_joint3"/>
+  <xacro:property name="NAME_JOINT_ARM_L_4" value="l_arm_joint4"/>
+  <xacro:property name="NAME_JOINT_ARM_L_5" value="l_arm_joint5"/>
+  <xacro:property name="NAME_JOINT_ARM_L_6" value="l_arm_joint6"/>
+  <xacro:property name="NAME_JOINT_ARM_L_7" value="l_arm_joint7"/>
+  <xacro:property name="NAME_JOINT_HAND_L_A" value="l_hand_joint"/>
+  <xacro:property name="NAME_JOINT_HAND_L_B" value="l_hand_mimic_joint"/>
+  <xacro:property name="NAME_JOINT_ARMARKER_L" value="l_arm_armarker"/>
+
   <xacro:property name="EFFORT_LIMIT" value="4.0"/>
   <xacro:property name="VELOCITY_LIMIT" value="5.969211435"/>
 
@@ -70,9 +132,9 @@
   <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
   <link name="world"/>
 
-  <joint name="base_link_to_world_joint" type="fixed">
+  <joint name="${NAME_JOINT_BASE}" type="fixed">
     <parent link="world"/>
-    <child link="base_link"/>
+    <child link="${NAME_LINK_BASE}"/>
   </joint>
 
   <xacro:sciurus17_body

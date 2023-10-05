@@ -22,9 +22,9 @@
             arm_color
             ">
 
-    <joint name="r_arm_joint1" type="revolute">
-      <parent link="body_link" />
-      <child link="r_link1" />
+    <joint name="${NAME_JOINT_ARM_R_1}" type="revolute">
+      <parent link="${NAME_LINK_BODY}" />
+      <child link="${NAME_LINK_ARM_R_1}" />
       <origin xyz="0.08083 -0.0965 0.2885" rpy="0 0 0"/>
       <limit 
         lower="${arm_joint1_lower_limit}" 
@@ -35,7 +35,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="r_link1">
+    <link name="${NAME_LINK_ARM_R_1}">
       <visual>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -56,9 +56,9 @@
       </inertial>
     </link>
 
-    <joint name="r_arm_joint2" type="revolute">
-      <parent link="r_link1" />
-      <child link="r_link2" />
+    <joint name="${NAME_JOINT_ARM_R_2}" type="revolute">
+      <parent link="${NAME_LINK_ARM_R_1}" />
+      <child link="${NAME_LINK_ARM_R_2}" />
       <origin xyz="0.0 -0.064 0.0" rpy="0 0 0"/>
       <limit 
         lower="${arm_joint2_lower_limit}" 
@@ -69,7 +69,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="r_link2">
+    <link name="${NAME_LINK_ARM_R_2}">
       <visual>
         <origin rpy="0 1.5708 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -90,9 +90,9 @@
       </inertial>
     </link>
 
-    <joint name="r_arm_joint3" type="revolute">
-      <parent link="r_link2" />
-      <child link="r_link3" />
+    <joint name="${NAME_JOINT_ARM_R_3}" type="revolute">
+      <parent link="${NAME_LINK_ARM_R_2}" />
+      <child link="${NAME_LINK_ARM_R_3}" />
       <origin xyz="0.0 -0.065 0.0" rpy="0 0 0"/>
       <limit 
         lower="${arm_joint3_lower_limit}"
@@ -103,7 +103,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="r_link3">
+    <link name="${NAME_LINK_ARM_R_3}">
       <visual>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -124,9 +124,9 @@
       </inertial>
     </link>
 
-    <joint name="r_arm_joint4" type="revolute">
-      <parent link="r_link3" />
-      <child link="r_link4" />
+    <joint name="${NAME_JOINT_ARM_R_4}" type="revolute">
+      <parent link="${NAME_LINK_ARM_R_3}" />
+      <child link="${NAME_LINK_ARM_R_4}" />
       <origin xyz="0.0 -0.185 0.0" rpy="0 0 0"/>
       <limit 
         lower="${arm_joint4_lower_limit}" 
@@ -137,7 +137,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="r_link4">
+    <link name="${NAME_LINK_ARM_R_4}">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -158,9 +158,9 @@
       </inertial>
     </link>
 
-    <joint name="r_arm_joint5" type="revolute">
-      <parent link="r_link4" />
-      <child link="r_link5" />
+    <joint name="${NAME_JOINT_ARM_R_5}" type="revolute">
+      <parent link="${NAME_LINK_ARM_R_4}" />
+      <child link="${NAME_LINK_ARM_R_5}" />
       <origin xyz="0.0 -0.121 0.0" rpy="0 0 0"/>
       <limit 
         lower="${arm_joint5_lower_limit}" 
@@ -171,7 +171,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="r_link5">
+    <link name="${NAME_LINK_ARM_R_5}">
       <visual>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -210,13 +210,13 @@
       </inertial>
     </link>
 
-    <joint name="r_arm_armarker" type="fixed">
-      <parent link="r_link5" />
-      <child link="r_link5_armarker" />
+    <joint name="${NAME_JOINT_ARMARKER_R}" type="fixed">
+      <parent link="${NAME_LINK_ARM_R_5}" />
+      <child link="${NAME_LINK_ARMARKER_R}" />
       <origin xyz="0.0467 -0.093 0.0" rpy="0 0 0"/>
     </joint>
 
-    <link name="r_link5_armarker">
+    <link name="${NAME_LINK_ARMARKER_R}">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -232,9 +232,9 @@
       </collision>
     </link>
 
-    <joint name="r_arm_joint6" type="revolute">
-      <parent link="r_link5" />
-      <child link="r_link6" />
+    <joint name="${NAME_JOINT_ARM_R_6}" type="revolute">
+      <parent link="${NAME_LINK_ARM_R_5}" />
+      <child link="${NAME_LINK_ARM_R_6}" />
       <origin xyz="0.0 -0.129 0.0" rpy="0 0 0"/>
       <limit 
         lower="${arm_joint6_lower_limit}" 
@@ -245,7 +245,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="r_link6">
+    <link name="${NAME_LINK_ARM_R_6}">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -266,9 +266,9 @@
       </inertial>
     </link>
 
-    <joint name="r_arm_joint7" type="revolute">
-      <parent link="r_link6" />
-      <child link="r_link7" />
+    <joint name="${NAME_JOINT_ARM_R_7}" type="revolute">
+      <parent link="${NAME_LINK_ARM_R_6}" />
+      <child link="${NAME_LINK_ARM_R_7}" />
       <origin xyz="0.0 -0.0191 0.0" rpy="0 0 0"/>
       <limit 
         lower="${arm_joint7_lower_limit}" 
@@ -279,22 +279,22 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <gazebo reference="r_link1">
+    <gazebo reference="${NAME_LINK_ARM_R_1}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="r_link2">
+    <gazebo reference="${NAME_LINK_ARM_R_2}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="r_link3">
+    <gazebo reference="${NAME_LINK_ARM_R_3}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="r_link4">
+    <gazebo reference="${NAME_LINK_ARM_R_4}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="r_link5">
+    <gazebo reference="${NAME_LINK_ARM_R_5}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="r_link6">
+    <gazebo reference="${NAME_LINK_ARM_R_6}">
       <material>Gazebo/White</material>
     </gazebo>
 

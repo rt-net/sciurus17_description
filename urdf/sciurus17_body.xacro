@@ -12,7 +12,7 @@
             camera_color
     ">
 
-    <link name="base_link">
+    <link name="${NAME_LINK_BASE}">
       <visual>
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Base.stl" scale="1.0 1.0 1.0"/>
@@ -32,9 +32,9 @@
       </inertial>
     </link>
 
-    <joint name="waist_yaw_joint" type="revolute">
-      <parent link="base_link" />
-      <child link="body_link" />
+    <joint name="${NAME_JOINT_BODY}" type="revolute">
+      <parent link="${NAME_LINK_BASE}" />
+      <child link="${NAME_LINK_BODY}" />
       <origin xyz="0.0 0.0 0.1315" rpy="0 0 0"/>
       <limit 
         lower="${waist_yaw_upper_limit}" 
@@ -45,7 +45,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="body_link">
+    <link name="${NAME_LINK_BODY}">
       <visual>
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Body.stl" scale="1.0 1.0 1.0"/>
@@ -65,13 +65,13 @@
       </inertial>
     </link>
 
-    <joint name="chest_camera_joint" type="fixed">
-      <parent link="body_link" />
-      <child link="chest_camera_link" />
+    <joint name="${NAME_JOINT_CHEST_CAMERA}" type="fixed">
+      <parent link="${NAME_LINK_BODY}" />
+      <child link="${NAME_LINK_CHEST_CAMERA}" />
       <origin xyz="0.114576 0.0 0.217659" rpy="-2.7925268032 0 -1.5707963268"/>
     </joint>
 
-    <link name="chest_camera_link">
+    <link name="${NAME_LINK_CHEST_CAMERA}">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -87,13 +87,13 @@
       </collision>
     </link>
 
-    <gazebo reference="base_link">
+    <gazebo reference="${NAME_LINK_BASE}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="body_link">
+    <gazebo reference="${NAME_LINK_BODY}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="chest_camera_link">
+    <gazebo reference="${NAME_LINK_CHEST_CAMERA}">
       <material>Gazebo/Black</material>
     </gazebo>
 

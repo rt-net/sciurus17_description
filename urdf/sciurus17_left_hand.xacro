@@ -10,7 +10,7 @@
             hand_color
             ">
 
-    <link name="l_link7">
+    <link name="${NAME_LINK_ARM_L_7}">
       <visual>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -31,9 +31,9 @@
       </inertial>
     </link>
 
-    <joint name="l_hand_joint" type="revolute">
-      <parent link="l_link7" />
-      <child link="l_handA_link" />
+    <joint name="${NAME_JOINT_HAND_L_A}" type="revolute">
+      <parent link="${NAME_LINK_ARM_L_7}" />
+      <child link="${NAME_LINK_HAND_L_A}" />
       <origin xyz="0.012 0.024 0.0" rpy="0 0 0"/>
       <limit 
         lower="${hand_joints_lower_limit}" 
@@ -44,7 +44,7 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="l_handA_link">
+    <link name="${NAME_LINK_HAND_L_A}">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -65,9 +65,9 @@
       </inertial>
     </link>
 
-    <joint name="l_hand_mimic_joint" type="revolute">
-      <parent link="l_link7" />
-      <child link="l_handB_link" />
+    <joint name="${NAME_JOINT_HAND_L_B}" type="revolute">
+      <parent link="${NAME_LINK_ARM_L_7}" />
+      <child link="${NAME_LINK_HAND_L_B}" />
       <origin xyz="-0.012 0.024 0.0" rpy="0 0 0"/>
       <limit 
         lower="${hand_joints_lower_limit}" 
@@ -75,11 +75,11 @@
         effort="${hand_joints_effort_limit}" 
         velocity="${hand_joints_velocity_limit}"/>
       <axis xyz="0 0 -1"/>
-      <mimic joint="l_hand_joint" multiplier="1" offset="0"/>
+      <mimic joint="${NAME_JOINT_HAND_L_A}" multiplier="1" offset="0"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="l_handB_link">
+    <link name="${NAME_LINK_HAND_L_B}">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
@@ -100,13 +100,13 @@
       </inertial>
     </link>
 
-    <gazebo reference="l_link7">
+    <gazebo reference="${NAME_LINK_ARM_L_7}">
       <material>Gazebo/Red</material>
     </gazebo>
-    <gazebo reference="l_handA_link">
+    <gazebo reference="${NAME_LINK_HAND_L_A}">
       <material>Gazebo/Red</material>
     </gazebo>
-    <gazebo reference="l_handB_link">
+    <gazebo reference="${NAME_LINK_HAND_L_B}">
       <material>Gazebo/Red</material>
     </gazebo>
 
