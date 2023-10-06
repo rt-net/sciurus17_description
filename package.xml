@@ -9,6 +9,7 @@
 
   <author email="nomura@rt-net.jp">Hiroyuki Nomura</author>
   <author email="s.aoki@rt-net.jp">ShotaAk</author>
+  <author email="kuwagata@rt-net.jp">Atsushi Kuwagata</author>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
