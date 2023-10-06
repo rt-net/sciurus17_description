@@ -2,26 +2,17 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="sciurus17_head" 
-    params="neck_yaw_lower_limit
-            neck_yaw_upper_limit
-            neck_pitch_lower_limit
-            neck_pitch_upper_limit
-            neck_joints_effort_limit
-            neck_joints_velocity_limit
-            head_color
-            camera_color
-            ">
+  <xacro:macro name="sciurus17_head">
 
     <joint name="${NAME_JOINT_NECK_1}" type="revolute">
       <parent link="${NAME_LINK_BODY}" />
       <child link="${NAME_LINK_NECK_1}" />
       <origin xyz="0.08083 0.0 0.3395" rpy="0 0 0"/>
       <limit 
-        lower="${neck_yaw_lower_limit}" 
-        upper="${neck_yaw_upper_limit}" 
-        effort="${neck_joints_effort_limit}" 
-        velocity="${neck_joints_velocity_limit}"/>
+        lower="${JOINT_NECK_1_LOWER_LIMIT}" 
+        upper="${JOINT_NECK_1_UPPER_LIMIT}" 
+        effort="${EFFORT_LIMIT}" 
+        velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 1"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
@@ -31,7 +22,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Neck1.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${head_color}"/>
+        <material name="${COLOR_LINK_HEAD}"/>
       </visual>
       <collision>
         <geometry>
@@ -50,10 +41,10 @@
       <child link="${NAME_LINK_NECK_2}" />
       <origin xyz="0.0 0.0 0.054" rpy="0 0 0"/>
       <limit 
-        lower="${neck_pitch_lower_limit}" 
-        upper="${neck_pitch_upper_limit}" 
-        effort="${neck_joints_effort_limit}" 
-        velocity="${neck_joints_velocity_limit}"/>
+        lower="${JOINT_NECK_2_LOWER_LIMIT}" 
+        upper="${JOINT_NECK_2_UPPER_LIMIT}" 
+        effort="${EFFORT_LIMIT}" 
+        velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 -1 0"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
@@ -64,7 +55,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Neck2.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${head_color}"/>
+        <material name="${COLOR_LINK_HEAD}"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -91,7 +82,7 @@
         <geometry>
           <cylinder length="0.002" radius="0.003"/>
         </geometry>
-        <material name="${camera_color}"/>
+        <material name="${COLOR_LINK_CAMERA}"/>
       </visual>
       <collision>
         <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>

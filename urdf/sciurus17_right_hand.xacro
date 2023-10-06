@@ -2,13 +2,7 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="sciurus17_right_hand" 
-    params="hand_joints_lower_limit
-            hand_joints_upper_limit
-            hand_joints_effort_limit
-            hand_joints_velocity_limit
-            hand_color
-            ">
+  <xacro:macro name="sciurus17_right_hand">
 
     <link name="${NAME_LINK_ARM_R_7}">
       <visual>
@@ -16,7 +10,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_Link7.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${hand_color}"/>
+        <material name="${COLOR_LINK_HAND}"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -36,10 +30,10 @@
       <child link="${NAME_LINK_HAND_R_A}" />
       <origin xyz="0.012 -0.024 0.0" rpy="0 0 0"/>
       <limit 
-        lower="${hand_joints_lower_limit}" 
-        upper="${hand_joints_upper_limit}" 
-        effort="${hand_joints_effort_limit}" 
-        velocity="${hand_joints_velocity_limit}"/>
+        lower="${JOINT_HAND_R_LOWER_LIMIT}" 
+        upper="${JOINT_HAND_R_UPPER_LIMIT}" 
+        effort="${EFFORT_LIMIT}" 
+        velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 1"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
@@ -51,7 +45,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_HandA.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${hand_color}"/>
+        <material name="${COLOR_LINK_HAND}"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -71,10 +65,10 @@
       <child link="${NAME_LINK_HAND_R_B}" />
       <origin xyz="-0.012 -0.024 0.0" rpy="0 0 0"/>
       <limit 
-        lower="${hand_joints_lower_limit}" 
-        upper="${hand_joints_upper_limit}" 
-        effort="${hand_joints_effort_limit}" 
-        velocity="${hand_joints_velocity_limit}"/>
+        lower="${JOINT_HAND_R_LOWER_LIMIT}" 
+        upper="${JOINT_HAND_R_UPPER_LIMIT}" 
+        effort="${EFFORT_LIMIT}" 
+        velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 -1"/>
       <mimic joint="${NAME_JOINT_HAND_R_A}" multiplier="1" offset="0"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
@@ -87,7 +81,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_HandB.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${hand_color}"/>
+        <material name="${COLOR_LINK_HAND}"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>

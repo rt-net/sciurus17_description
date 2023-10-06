@@ -186,81 +186,16 @@
     <child link="${NAME_LINK_BASE}"/>
   </joint>
 
-  <xacro:sciurus17_body
-    waist_yaw_upper_limit="${NAME_JOINT_BODY_LOWER_LIMIT}"
-    waist_yaw_lower_limit="${NAME_JOINT_BODY_UPPER_LIMIT}"
-    waist_yaw_effort_limit="${EFFORT_LIMIT}"
-    waist_yaw_velocity_limit="${VELOCITY_LIMIT}"
-    base_color="${COLOR_LINK_BASE}"
-    body_color="${COLOR_LINK_BODY}"
-    camera_color="${COLOR_LINK_CAMERA}">
-  </xacro:sciurus17_body>
+  <xacro:sciurus17_body/>
 
-  <xacro:sciurus17_head
-    neck_yaw_lower_limit="${JOINT_NECK_1_LOWER_LIMIT}"
-    neck_yaw_upper_limit="${JOINT_NECK_1_UPPER_LIMIT}"
-    neck_pitch_lower_limit="${JOINT_NECK_2_LOWER_LIMIT}"
-    neck_pitch_upper_limit="${JOINT_NECK_2_UPPER_LIMIT}"
-    neck_joints_effort_limit="${EFFORT_LIMIT}"
-    neck_joints_velocity_limit="${VELOCITY_LIMIT}"
-    head_color="${COLOR_LINK_HEAD}"
-    camera_color="${COLOR_LINK_CAMERA}">
-  </xacro:sciurus17_head>
+  <xacro:sciurus17_head/>
 
-  <xacro:sciurus17_right_arm
-    arm_joint1_lower_limit="${JOINT_ARM_R_1_LOWER_LIMIT}"
-    arm_joint1_upper_limit="${JOINT_ARM_R_1_UPPER_LIMIT}"
-    arm_joint2_lower_limit="${JOINT_ARM_R_2_LOWER_LIMIT}"
-    arm_joint2_upper_limit="${JOINT_ARM_R_2_UPPER_LIMIT}"
-    arm_joint3_lower_limit="${JOINT_ARM_R_3_LOWER_LIMIT}"
-    arm_joint3_upper_limit="${JOINT_ARM_R_3_UPPER_LIMIT}"
-    arm_joint4_lower_limit="${JOINT_ARM_R_4_LOWER_LIMIT}"
-    arm_joint4_upper_limit="${JOINT_ARM_R_4_UPPER_LIMIT}"
-    arm_joint5_lower_limit="${JOINT_ARM_R_5_LOWER_LIMIT}"
-    arm_joint5_upper_limit="${JOINT_ARM_R_5_UPPER_LIMIT}"
-    arm_joint6_lower_limit="${JOINT_ARM_R_6_LOWER_LIMIT}"
-    arm_joint6_upper_limit="${JOINT_ARM_R_6_UPPER_LIMIT}"
-    arm_joint7_lower_limit="${JOINT_ARM_R_7_LOWER_LIMIT}"
-    arm_joint7_upper_limit="${JOINT_ARM_R_7_UPPER_LIMIT}"
-    arm_joints_effort_limit="${EFFORT_LIMIT}"
-    arm_joints_velocity_limit="${VELOCITY_LIMIT}"
-    arm_color="${COLOR_LINK_ARM}">
-  </xacro:sciurus17_right_arm>
+  <xacro:sciurus17_right_arm/>
 
-  <xacro:sciurus17_right_hand
-    hand_joints_lower_limit="${JOINT_HAND_R_LOWER_LIMIT}"
-    hand_joints_upper_limit="${JOINT_HAND_R_UPPER_LIMIT}"
-    hand_joints_effort_limit="${EFFORT_LIMIT}"
-    hand_joints_velocity_limit="${VELOCITY_LIMIT}"
-    hand_color="${COLOR_LINK_HAND}">
-  </xacro:sciurus17_right_hand>
+  <xacro:sciurus17_right_hand/>
 
-  <xacro:sciurus17_left_arm
-    arm_joint1_lower_limit="${JOINT_ARM_L_1_LOWER_LIMIT}"
-    arm_joint1_upper_limit="${JOINT_ARM_L_1_UPPER_LIMIT}"
-    arm_joint2_lower_limit="${JOINT_ARM_L_2_LOWER_LIMIT}"
-    arm_joint2_upper_limit="${JOINT_ARM_L_2_UPPER_LIMIT}"
-    arm_joint3_lower_limit="${JOINT_ARM_L_3_LOWER_LIMIT}"
-    arm_joint3_upper_limit="${JOINT_ARM_L_3_UPPER_LIMIT}"
-    arm_joint4_lower_limit="${JOINT_ARM_L_4_LOWER_LIMIT}"
-    arm_joint4_upper_limit="${JOINT_ARM_L_4_UPPER_LIMIT}"
-    arm_joint5_lower_limit="${JOINT_ARM_L_5_LOWER_LIMIT}"
-    arm_joint5_upper_limit="${JOINT_ARM_L_5_UPPER_LIMIT}"
-    arm_joint6_lower_limit="${JOINT_ARM_L_6_LOWER_LIMIT}"
-    arm_joint6_upper_limit="${JOINT_ARM_L_6_UPPER_LIMIT}"
-    arm_joint7_lower_limit="${JOINT_ARM_L_7_LOWER_LIMIT}"
-    arm_joint7_upper_limit="${JOINT_ARM_L_7_UPPER_LIMIT}"
-    arm_joints_effort_limit="${EFFORT_LIMIT}"
-    arm_joints_velocity_limit="${VELOCITY_LIMIT}"
-    arm_color="${COLOR_LINK_ARM}">
-  </xacro:sciurus17_left_arm>
+  <xacro:sciurus17_left_arm/>
 
-  <xacro:sciurus17_left_hand
-    hand_joints_lower_limit="${JOINT_HAND_L_LOWER_LIMIT}"
-    hand_joints_upper_limit="${JOINT_HAND_L_UPPER_LIMIT}"
-    hand_joints_effort_limit="${EFFORT_LIMIT}"
-    hand_joints_velocity_limit="${VELOCITY_LIMIT}"
-    hand_color="${COLOR_LINK_HAND}">
-  </xacro:sciurus17_left_hand>
+  <xacro:sciurus17_left_hand/>
 
 </robot>
