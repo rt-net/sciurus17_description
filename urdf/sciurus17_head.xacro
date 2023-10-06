@@ -70,13 +70,13 @@
       </inertial>
     </link>
 
-    <joint name="${NAME_JOINT_CAMERA}" type="fixed">
+    <joint name="${NAME_JOINT_HEAD_CAMERA}" type="fixed">
       <parent link="${NAME_LINK_NECK_2}" />
-      <child link="${NAME_LINK_CAMERA}" />
+      <child link="${NAME_LINK_HEAD_CAMERA}" />
       <origin xyz="0.081785 0.020 0.091" rpy="0 0 0"/>
     </joint>
 
-    <link name="${NAME_LINK_CAMERA}">
+    <link name="${NAME_LINK_HEAD_CAMERA}">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -98,7 +98,7 @@
     <gazebo reference="${NAME_LINK_NECK_2}">
       <material>Gazebo/White</material>
     </gazebo>
-    <gazebo reference="${NAME_LINK_CAMERA}">
+    <gazebo reference="${NAME_LINK_HEAD_CAMERA}">
       <material>Gazebo/Black</material>
     </gazebo>
 
