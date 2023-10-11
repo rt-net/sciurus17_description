@@ -1,33 +1,27 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(sciurus17_description)
 
-# add_definitions(-std=c++11)
+find_package(ament_cmake REQUIRED)
 
-find_package(catkin REQUIRED COMPONENTS
-  rospy
-  std_msgs
+install(DIRECTORY
+  launch
+  meshes
+  urdf
+  DESTINATION share/${PROJECT_NAME}/
 )
 
-# catkin_python_setup()
+ament_python_install_package(${PROJECT_NAME})
+install(PROGRAMS
+    ${PROJECT_NAME}/robot_description_loader.py
+    DESTINATION lib/${PROJECT_NAME})
 
-###################################
-## catkin specific configuration ##
-###################################
-catkin_package(
-)
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  set(ament_cmake_copyright_FOUND TRUE)  # Skip copyright checks
+  ament_lint_auto_find_test_dependencies()
 
-###########
-## Build ##
-###########
-include_directories(
-  ${catkin_INCLUDE_DIRS}
-)
+  find_package(ament_cmake_pytest REQUIRED)
+  ament_add_pytest_test(test_robot_description_loader test/test_robot_description_loader.py)
+endif()
 
-#############
-## Install ##
-#############
-foreach(dir config launch meshes urdf)
-  install(DIRECTORY ${dir}/ 
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/${dir}
-  )
-endforeach(dir)
+ament_package()
