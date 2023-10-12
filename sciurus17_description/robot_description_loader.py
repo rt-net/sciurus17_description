@@ -13,9 +13,11 @@ class RobotDescriptionLoader():
             get_package_share_directory('sciurus17_description'),
             'urdf',
             'sciurus17.urdf.xacro')
+        self.use_gazebo = 'false'
 
     def load(self):
         return Command([
                 'xacro ',
-                self.robot_description_path
+                self.robot_description_path,
+                ' use_gazebo:=', self.use_gazebo
                 ])
