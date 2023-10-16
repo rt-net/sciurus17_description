@@ -94,16 +94,6 @@
       </inertial>
     </link>
 
-    <gazebo reference="${NAME_LINK_ARM_L_7}">
-      <material>Gazebo/Red</material>
-    </gazebo>
-    <gazebo reference="${NAME_LINK_HAND_L_A}">
-      <material>Gazebo/Red</material>
-    </gazebo>
-    <gazebo reference="${NAME_LINK_HAND_L_B}">
-      <material>Gazebo/Red</material>
-    </gazebo>
-
   </xacro:macro>
 
 </robot>

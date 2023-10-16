@@ -89,14 +89,14 @@
       <visual>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/visual/L_Link3.stl" scale="1.0 -1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/visual/L_Link3.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="${COLOR_LINK_ARM}"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/collision/L_Link3.stl" scale="1.0 -1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/collision/L_Link3.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </collision>
       <inertial>
@@ -260,25 +260,6 @@
       <axis xyz="0 -1 0"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
-
-    <gazebo reference="${NAME_LINK_ARM_R_1}">
-      <material>Gazebo/White</material>
-    </gazebo>
-    <gazebo reference="${NAME_LINK_ARM_R_2}">
-      <material>Gazebo/White</material>
-    </gazebo>
-    <gazebo reference="${NAME_LINK_ARM_R_3}">
-      <material>Gazebo/White</material>
-    </gazebo>
-    <gazebo reference="${NAME_LINK_ARM_R_4}">
-      <material>Gazebo/White</material>
-    </gazebo>
-    <gazebo reference="${NAME_LINK_ARM_R_5}">
-      <material>Gazebo/White</material>
-    </gazebo>
-    <gazebo reference="${NAME_LINK_ARM_R_6}">
-      <material>Gazebo/White</material>
-    </gazebo>
 
   </xacro:macro>
 

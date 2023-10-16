@@ -25,3 +25,10 @@ def test_change_description_path():
     with pytest.raises(Exception) as e:
         exec_load(rdl)
     assert e.value
+
+
+def test_use_gazebo():
+    # use_gazeboが変更され、xacroにgazeboタグがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_gazebo = 'true'
+    assert '<gazebo' in exec_load(rdl)
