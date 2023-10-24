@@ -14,8 +14,13 @@
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_left_arm.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_left_hand.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_gazebo.xacro"/>
+  <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17.gazebo_ros2_control.xacro"/>
 
   <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="gz_control_config_package" default="" />
+  <xacro:arg name="gz_control_config_file_path" default="" />
+  <xacro:property name="GZ_CONTROL_CONFIG_PACKAGE" value="$(arg gz_control_config_package)"/>
+  <xacro:property name="GZ_CONTROL_CONFIG_FILE_PATH" value="$(arg gz_control_config_file_path)"/>
 
   <material name="white">
     <color rgba="0.9 0.9 0.9 1.0"/>
@@ -160,6 +165,10 @@
   <xacro:sciurus17_left_hand/>
 
   <xacro:if value="$(arg use_gazebo)">
+
     <xacro:gazebo_robot_settings/>
+
+    <xacro:sciurus17_gazebo_ros2_control_settings/>
+
   </xacro:if>
 </robot>

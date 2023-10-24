@@ -30,6 +30,11 @@
   </xacro:macro>
 
   <xacro:macro name="gazebo_robot_settings">
+    <gazebo>
+      <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+        <parameters>$(find ${GZ_CONTROL_CONFIG_PACKAGE})/${GZ_CONTROL_CONFIG_FILE_PATH}</parameters>
+      </plugin>
+    </gazebo>
 
     <gazebo reference="${NAME_LINK_BASE}">
       <xacro:material_gazebo_white/>
