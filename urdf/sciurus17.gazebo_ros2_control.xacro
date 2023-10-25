@@ -13,7 +13,9 @@
           <param name="min">${NAME_JOINT_BODY_LOWER_LIMIT}</param>
           <param name="max">${NAME_JOINT_BODY_UPPER_LIMIT}</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -23,7 +25,9 @@
           <param name="min">${JOINT_NECK_1_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_NECK_1_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -33,7 +37,9 @@
           <param name="min">${JOINT_NECK_2_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_NECK_2_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -43,7 +49,9 @@
           <param name="min">${JOINT_ARM_R_1_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_R_1_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -53,7 +61,9 @@
           <param name="min">${JOINT_ARM_R_2_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_R_2_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">-1.5707</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -63,7 +73,9 @@
           <param name="min">${JOINT_ARM_R_3_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_R_3_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -73,7 +85,9 @@
           <param name="min">${JOINT_ARM_R_4_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_R_4_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">2.7262</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -83,7 +97,9 @@
           <param name="min">${JOINT_ARM_R_5_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_R_5_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -93,7 +109,9 @@
           <param name="min">${JOINT_ARM_R_6_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_R_6_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">-2.0943</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -103,7 +121,9 @@
           <param name="min">${JOINT_ARM_R_7_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_R_7_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -113,7 +133,9 @@
           <param name="min">${JOINT_HAND_R_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_HAND_R_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -132,7 +154,9 @@
           <param name="min">${JOINT_ARM_L_1_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_L_1_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -142,7 +166,9 @@
           <param name="min">${JOINT_ARM_L_2_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_L_2_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">1.5707</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -152,7 +178,9 @@
           <param name="min">${JOINT_ARM_L_3_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_L_3_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -162,7 +190,9 @@
           <param name="min">${JOINT_ARM_L_4_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_L_4_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">-2.7262</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -172,7 +202,9 @@
           <param name="min">${JOINT_ARM_L_5_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_L_5_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -182,7 +214,9 @@
           <param name="min">${JOINT_ARM_L_6_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_L_6_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">2.09439</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -192,7 +226,9 @@
           <param name="min">${JOINT_ARM_L_7_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_ARM_L_7_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
@@ -202,7 +238,9 @@
           <param name="min">${JOINT_HAND_L_LOWER_LIMIT}"</param>
           <param name="max">${JOINT_HAND_L_UPPER_LIMIT}"</param>
         </command_interface>
-        <state_interface name="position"/>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
       </joint>
