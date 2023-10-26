@@ -60,6 +60,15 @@
       </inertial>
     </link>
 
+    <!--Dummy joint/link to prevent error with mimic joint
+    See https://github.com/ros-controls/gazebo_ros2_control/issues/173
+    -->
+    <joint name="${NAME_JOINT_HAND_R_B}_mimic" type="fixed">
+      <parent link="world" />
+      <child link="dummy_mimic_fix_r" />
+    </joint>
+    <link name="dummy_mimic_fix_r"/>
+
     <joint name="${NAME_JOINT_HAND_R_B}" type="revolute">
       <parent link="${NAME_LINK_ARM_R_7}" />
       <child link="${NAME_LINK_HAND_R_B}" />

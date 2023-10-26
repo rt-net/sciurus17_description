@@ -28,7 +28,9 @@ def test_change_description_path():
 
 
 def test_use_gazebo():
-    # use_gazeboが変更され、xacroにgazeboタグがセットされることを期待
+    # use_gazeboが変更され、xacroにign_ros2_controlがセットされることを期待
     rdl = RobotDescriptionLoader()
     rdl.use_gazebo = 'true'
-    assert '<gazebo' in exec_load(rdl)
+    rdl.gz_control_config_package = 'sciurus17_description'
+    rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
+    assert 'ign_ros2_control/IgnitionSystem' in exec_load(rdl)

@@ -14,10 +14,14 @@ class RobotDescriptionLoader():
             'urdf',
             'sciurus17.urdf.xacro')
         self.use_gazebo = 'false'
+        self.gz_control_config_package = ''
+        self.gz_control_config_file_path = ''
 
     def load(self):
         return Command([
                 'xacro ',
                 self.robot_description_path,
-                ' use_gazebo:=', self.use_gazebo
+                ' use_gazebo:=', self.use_gazebo,
+                ' gz_control_config_package:=', self.gz_control_config_package,
+                ' gz_control_config_file_path:=', self.gz_control_config_file_path
                 ])

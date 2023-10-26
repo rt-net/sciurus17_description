@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="sciurus17_gazebo_ros2_control_settings">
+
+    <ros2_control name="sciurus17" type="system">
+      <hardware>
+        <plugin>ign_ros2_control/IgnitionSystem</plugin>
+      </hardware>
+
+      <joint name="${NAME_JOINT_BODY}">
+        <command_interface name="position">
+          <param name="min">${NAME_JOINT_BODY_LOWER_LIMIT}</param>
+          <param name="max">${NAME_JOINT_BODY_UPPER_LIMIT}</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_NECK_1}">
+        <command_interface name="position">
+          <param name="min">${JOINT_NECK_1_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_NECK_1_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_NECK_2}">
+        <command_interface name="position">
+          <param name="min">${JOINT_NECK_2_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_NECK_2_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_R_1}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_R_1_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_R_1_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_R_2}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_R_2_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_R_2_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">-1.5707</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_R_3}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_R_3_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_R_3_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_R_4}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_R_4_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_R_4_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">2.7262</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_R_5}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_R_5_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_R_5_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_R_6}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_R_6_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_R_6_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">-2.0943</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_R_7}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_R_7_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_R_7_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_HAND_R_A}">
+        <command_interface name="position">
+          <param name="min">${JOINT_HAND_R_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_HAND_R_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_HAND_R_B}">
+        <param name="mimic">${NAME_JOINT_HAND_R_A}</param>
+        <param name="multiplier">1</param>
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_L_1}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_L_1_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_L_1_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_L_2}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_L_2_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_L_2_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">1.5707</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_L_3}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_L_3_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_L_3_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_L_4}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_L_4_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_L_4_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">-2.7262</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_L_5}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_L_5_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_L_5_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_L_6}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_L_6_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_L_6_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">2.09439</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_ARM_L_7}">
+        <command_interface name="position">
+          <param name="min">${JOINT_ARM_L_7_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_ARM_L_7_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_HAND_L_A}">
+        <command_interface name="position">
+          <param name="min">${JOINT_HAND_L_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_HAND_L_UPPER_LIMIT}"</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+      <joint name="${NAME_JOINT_HAND_L_B}">
+        <param name="mimic">${NAME_JOINT_HAND_L_A}</param>
+        <param name="multiplier">1</param>
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+
+    </ros2_control>
+  </xacro:macro>
+</robot>
