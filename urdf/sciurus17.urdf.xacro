@@ -111,7 +111,7 @@
   <xacro:property name="JOINT_ARM_R_3_UPPER_LIMIT" value="${radians(90)}"/>
   <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
   <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
-  <xacro:property name="JOINT_ARM_R_4_LOWER_LIMIT" value="${radians(-0.001)}"/>
+  <xacro:property name="JOINT_ARM_R_4_LOWER_LIMIT" value="${radians(-0.01)}"/>
   <xacro:property name="JOINT_ARM_R_4_UPPER_LIMIT" value="${radians(157)}"/>
   <xacro:property name="JOINT_ARM_R_5_LOWER_LIMIT" value="${radians(-90)}"/>
   <xacro:property name="JOINT_ARM_R_5_UPPER_LIMIT" value="${radians(90)}"/>
@@ -121,7 +121,7 @@
   <xacro:property name="JOINT_ARM_R_7_UPPER_LIMIT" value="${radians(170)}"/>
   <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
   <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
-  <xacro:property name="JOINT_HAND_R_LOWER_LIMIT" value="${radians(-0.001)}"/>
+  <xacro:property name="JOINT_HAND_R_LOWER_LIMIT" value="${radians(-0.01)}"/>
   <xacro:property name="JOINT_HAND_R_UPPER_LIMIT" value="${radians(86)}"/>
 
   <xacro:property name="JOINT_ARM_L_1_LOWER_LIMIT" value="${radians(-90)}"/>
@@ -133,7 +133,7 @@
   <xacro:property name="JOINT_ARM_L_4_LOWER_LIMIT" value="${radians(-157)}"/>
   <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
   <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
-  <xacro:property name="JOINT_ARM_L_4_UPPER_LIMIT" value="${radians(0.001)}"/>
+  <xacro:property name="JOINT_ARM_L_4_UPPER_LIMIT" value="${radians(0.01)}"/>
   <xacro:property name="JOINT_ARM_L_5_LOWER_LIMIT" value="${radians(-90)}"/>
   <xacro:property name="JOINT_ARM_L_5_UPPER_LIMIT" value="${radians(90)}"/>
   <xacro:property name="JOINT_ARM_L_6_LOWER_LIMIT" value="${radians(-60)}"/>
@@ -143,7 +143,7 @@
   <xacro:property name="JOINT_HAND_L_LOWER_LIMIT" value="${radians(-86)}"/>
   <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
   <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
-  <xacro:property name="JOINT_HAND_L_UPPER_LIMIT" value="${radians(0.001)}"/>
+  <xacro:property name="JOINT_HAND_L_UPPER_LIMIT" value="${radians(0.01)}"/>
 
   <xacro:property name="COLOR_LINK_BASE" value="white"/>
   <xacro:property name="COLOR_LINK_BODY" value="white"/>
