@@ -45,7 +45,6 @@
         <param name="current_to_effort">2.20</param>
       </joint>
 
-      <!--
       <joint name="${NAME_JOINT_ARM_R_1}">
         <command_interface name="position">
           <param name="min">${JOINT_ARM_R_1_LOWER_LIMIT}"</param>
@@ -221,7 +220,6 @@
         <state_interface name="effort"/>
         <param name="current_to_effort">2.20</param>
       </joint>
-      -->
 
     </ros2_control>
   </xacro:macro>
