@@ -27,6 +27,31 @@ def test_change_description_path():
     assert e.value
 
 
+def test_port_name():
+    # port_nameが変更され、xacroにポート名がセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.port_name = '/dev/ttyUSB1'
+    assert '"port_name">/dev/ttyUSB1' in exec_load(rdl)
+
+
+def test_baudrate():
+    rdl = RobotDescriptionLoader()
+    rdl.baudrate = '4000000'
+    assert '"baudrate">4000000' in exec_load(rdl)
+
+
+def test_timeout_seconds():
+    rdl = RobotDescriptionLoader()
+    rdl.timeout_seconds = '3.0'
+    assert '"timeout_seconds">3.0' in exec_load(rdl)
+
+
+def test_manipulator_config_file_path():
+    rdl = RobotDescriptionLoader()
+    rdl.manipulator_config_file_path = 'test/config/file/path'
+    assert '"manipulator_config_file_path">test/config/file/path' in exec_load(rdl)
+
+
 def test_use_gazebo():
     # use_gazeboが変更され、xacroにign_ros2_controlがセットされることを期待
     rdl = RobotDescriptionLoader()
