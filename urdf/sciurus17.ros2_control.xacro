@@ -20,7 +20,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">3.60</param>
       </joint>
 
       <joint name="${NAME_JOINT_NECK_1}">
@@ -31,7 +31,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">1.79</param>
       </joint>
 
       <joint name="${NAME_JOINT_NECK_2}">
@@ -42,7 +42,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">1.79</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_R_1}">
@@ -53,7 +53,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">3.60</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_R_2}">
@@ -64,7 +64,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">3.60</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_R_3}">
@@ -86,7 +86,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">2.00</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_R_5}">
@@ -130,7 +130,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">1.79</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_L_1}">
@@ -141,7 +141,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">3.60</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_L_2}">
@@ -152,7 +152,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">3.60</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_L_3}">
@@ -174,7 +174,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">2.00</param>
       </joint>
 
       <joint name="${NAME_JOINT_ARM_L_5}">
@@ -218,7 +218,7 @@
         <state_interface name="position"/>
         <state_interface name="velocity"/>
         <state_interface name="effort"/>
-        <param name="current_to_effort">2.20</param>
+        <param name="current_to_effort">1.79</param>
       </joint>
 
     </ros2_control>
