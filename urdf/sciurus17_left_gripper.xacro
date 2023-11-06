@@ -42,14 +42,14 @@
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/visual/L_HandA.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/visual/L_GripperA.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="${COLOR_LINK_GRIPPER}"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/collision/L_HandA.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/collision/L_GripperA.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </collision>
       <inertial>
@@ -86,14 +86,14 @@
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/visual/L_HandB.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/visual/L_GripperB.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="${COLOR_LINK_GRIPPER}"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/collision/L_HandB.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/collision/L_GripperB.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </collision>
       <inertial>
