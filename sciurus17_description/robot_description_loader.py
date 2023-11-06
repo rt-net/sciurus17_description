@@ -13,6 +13,10 @@ class RobotDescriptionLoader():
             get_package_share_directory('sciurus17_description'),
             'urdf',
             'sciurus17.urdf.xacro')
+        self.port_name = '/dev/sciurus17spine'
+        self.baudrate = '3000000'
+        self.timeout_seconds = '1.0'
+        self.manipulator_config_file_path = ''
         self.use_gazebo = 'false'
         self.gz_control_config_package = ''
         self.gz_control_config_file_path = ''
@@ -21,6 +25,10 @@ class RobotDescriptionLoader():
         return Command([
                 'xacro ',
                 self.robot_description_path,
+                ' port_name:=', self.port_name,
+                ' baudrate:=', self.baudrate,
+                ' timeout_seconds:=', self.timeout_seconds,
+                ' manipulator_config_file_path:=', self.manipulator_config_file_path,
                 ' use_gazebo:=', self.use_gazebo,
                 ' gz_control_config_package:=', self.gz_control_config_package,
                 ' gz_control_config_file_path:=', self.gz_control_config_file_path

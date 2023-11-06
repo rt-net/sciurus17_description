@@ -7,6 +7,7 @@
     xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
     xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
+  <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17.ros2_control.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_body.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_head.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_right_arm.xacro"/>
@@ -17,8 +18,16 @@
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17.gazebo_ros2_control.xacro"/>
 
   <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="port_name" default="/dev/sciurus17spine" />
+  <xacro:arg name="baudrate" default="3000000" />
+  <xacro:arg name="timeout_seconds" default="1.0" />
+  <xacro:arg name="manipulator_config_file_path" default="" />
   <xacro:arg name="gz_control_config_package" default="" />
   <xacro:arg name="gz_control_config_file_path" default="" />
+  <xacro:property name="PORT_NAME" value="$(arg port_name)"/>
+  <xacro:property name="BAUDRATE" value="$(arg baudrate)"/>
+  <xacro:property name="TIMEOUT_SECONDS" value="$(arg timeout_seconds)"/>
+  <xacro:property name="MANIPULATOR_CONFIG_FILE_PATH" value="$(arg manipulator_config_file_path)"/>
   <xacro:property name="GZ_CONTROL_CONFIG_PACKAGE" value="$(arg gz_control_config_package)"/>
   <xacro:property name="GZ_CONTROL_CONFIG_FILE_PATH" value="$(arg gz_control_config_file_path)"/>
 
@@ -171,6 +180,12 @@
   <xacro:sciurus17_left_arm/>
 
   <xacro:sciurus17_left_hand/>
+
+  <xacro:unless value="$(arg use_gazebo)">
+
+    <xacro:sciurus17_ros2_control_settings/>
+
+  </xacro:unless>
 
   <xacro:if value="$(arg use_gazebo)">
 
