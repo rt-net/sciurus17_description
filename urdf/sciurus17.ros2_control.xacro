@@ -122,10 +122,10 @@
         <param name="current_to_effort">2.20</param>
       </joint>
 
-      <joint name="${NAME_JOINT_HAND_R_A}">
+      <joint name="${NAME_JOINT_GRIPPER_R_A}">
         <command_interface name="position">
-          <param name="min">${JOINT_HAND_R_LOWER_LIMIT}"</param>
-          <param name="max">${JOINT_HAND_R_UPPER_LIMIT}"</param>
+          <param name="min">${JOINT_GRIPPER_R_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_GRIPPER_R_UPPER_LIMIT}"</param>
         </command_interface>
         <state_interface name="position"/>
         <state_interface name="velocity"/>
@@ -210,10 +210,10 @@
         <param name="current_to_effort">2.20</param>
       </joint>
 
-      <joint name="${NAME_JOINT_HAND_L_A}">
+      <joint name="${NAME_JOINT_GRIPPER_L_A}">
         <command_interface name="position">
-          <param name="min">${JOINT_HAND_L_LOWER_LIMIT}"</param>
-          <param name="max">${JOINT_HAND_L_UPPER_LIMIT}"</param>
+          <param name="min">${JOINT_GRIPPER_L_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_GRIPPER_L_UPPER_LIMIT}"</param>
         </command_interface>
         <state_interface name="position"/>
         <state_interface name="velocity"/>

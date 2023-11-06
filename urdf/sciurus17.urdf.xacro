@@ -11,9 +11,9 @@
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_body.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_head.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_right_arm.xacro"/>
-  <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_right_hand.xacro"/>
+  <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_right_gripper.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_left_arm.xacro"/>
-  <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_left_hand.xacro"/>
+  <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_left_gripper.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17_gazebo.xacro"/>
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17.gazebo_ros2_control.xacro"/>
 
@@ -55,8 +55,8 @@
   <xacro:property name="NAME_LINK_ARM_R_5" value="r_link5"/>
   <xacro:property name="NAME_LINK_ARM_R_6" value="r_link6"/>
   <xacro:property name="NAME_LINK_ARM_R_7" value="r_link7"/>
-  <xacro:property name="NAME_LINK_HAND_R_A" value="r_handA_link"/>
-  <xacro:property name="NAME_LINK_HAND_R_B" value="r_handB_link"/>
+  <xacro:property name="NAME_LINK_GRIPPER_R_A" value="r_gripperA_link"/>
+  <xacro:property name="NAME_LINK_GRIPPER_R_B" value="r_gripperB_link"/>
   <xacro:property name="NAME_LINK_ARMARKER_R" value="r_link5_armarker"/>
 
   <xacro:property name="NAME_LINK_ARM_L_1" value="l_link1"/>
@@ -66,8 +66,8 @@
   <xacro:property name="NAME_LINK_ARM_L_5" value="l_link5"/>
   <xacro:property name="NAME_LINK_ARM_L_6" value="l_link6"/>
   <xacro:property name="NAME_LINK_ARM_L_7" value="l_link7"/>
-  <xacro:property name="NAME_LINK_HAND_L_A" value="l_handA_link"/>
-  <xacro:property name="NAME_LINK_HAND_L_B" value="l_handB_link"/>
+  <xacro:property name="NAME_LINK_GRIPPER_L_A" value="l_gripperA_link"/>
+  <xacro:property name="NAME_LINK_GRIPPER_L_B" value="l_gripperB_link"/>
   <xacro:property name="NAME_LINK_ARMARKER_L" value="l_link5_armarker"/>
 
   <xacro:property name="NAME_JOINT_BODY" value="waist_yaw_joint"/>
@@ -86,8 +86,8 @@
   <xacro:property name="NAME_JOINT_ARM_R_5" value="r_arm_joint5"/>
   <xacro:property name="NAME_JOINT_ARM_R_6" value="r_arm_joint6"/>
   <xacro:property name="NAME_JOINT_ARM_R_7" value="r_arm_joint7"/>
-  <xacro:property name="NAME_JOINT_HAND_R_A" value="r_hand_joint"/>
-  <xacro:property name="NAME_JOINT_HAND_R_B" value="r_hand_mimic_joint"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_R_A" value="r_gripper_joint"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_R_B" value="r_gripper_mimic_joint"/>
   <xacro:property name="NAME_JOINT_ARMARKER_R" value="r_arm_armarker"/>
 
   <xacro:property name="NAME_JOINT_ARM_L_1" value="l_arm_joint1"/>
@@ -97,8 +97,8 @@
   <xacro:property name="NAME_JOINT_ARM_L_5" value="l_arm_joint5"/>
   <xacro:property name="NAME_JOINT_ARM_L_6" value="l_arm_joint6"/>
   <xacro:property name="NAME_JOINT_ARM_L_7" value="l_arm_joint7"/>
-  <xacro:property name="NAME_JOINT_HAND_L_A" value="l_hand_joint"/>
-  <xacro:property name="NAME_JOINT_HAND_L_B" value="l_hand_mimic_joint"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_L_A" value="l_gripper_joint"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_L_B" value="l_gripper_mimic_joint"/>
   <xacro:property name="NAME_JOINT_ARMARKER_L" value="l_arm_armarker"/>
 
   <xacro:property name="EFFORT_LIMIT" value="4.0"/>
@@ -130,8 +130,8 @@
   <xacro:property name="JOINT_ARM_R_7_UPPER_LIMIT" value="${radians(170)}"/>
   <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
   <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
-  <xacro:property name="JOINT_HAND_R_LOWER_LIMIT" value="${radians(-0.01)}"/>
-  <xacro:property name="JOINT_HAND_R_UPPER_LIMIT" value="${radians(86)}"/>
+  <xacro:property name="JOINT_GRIPPER_R_LOWER_LIMIT" value="${radians(-0.01)}"/>
+  <xacro:property name="JOINT_GRIPPER_R_UPPER_LIMIT" value="${radians(86)}"/>
 
   <xacro:property name="JOINT_ARM_L_1_LOWER_LIMIT" value="${radians(-90)}"/>
   <xacro:property name="JOINT_ARM_L_1_UPPER_LIMIT" value="${radians(90)}"/>
@@ -149,16 +149,16 @@
   <xacro:property name="JOINT_ARM_L_6_UPPER_LIMIT" value="${radians(120)}"/>
   <xacro:property name="JOINT_ARM_L_7_LOWER_LIMIT" value="${radians(-170)}"/>
   <xacro:property name="JOINT_ARM_L_7_UPPER_LIMIT" value="${radians(170)}"/>
-  <xacro:property name="JOINT_HAND_L_LOWER_LIMIT" value="${radians(-86)}"/>
+  <xacro:property name="JOINT_GRIPPER_L_LOWER_LIMIT" value="${radians(-86)}"/>
   <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
   <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
-  <xacro:property name="JOINT_HAND_L_UPPER_LIMIT" value="${radians(0.01)}"/>
+  <xacro:property name="JOINT_GRIPPER_L_UPPER_LIMIT" value="${radians(0.01)}"/>
 
   <xacro:property name="COLOR_LINK_BASE" value="white"/>
   <xacro:property name="COLOR_LINK_BODY" value="white"/>
   <xacro:property name="COLOR_LINK_HEAD" value="white"/>
   <xacro:property name="COLOR_LINK_ARM" value="white"/>
-  <xacro:property name="COLOR_LINK_HAND" value="red"/>
+  <xacro:property name="COLOR_LINK_GRIPPER" value="red"/>
   <xacro:property name="COLOR_LINK_CAMERA" value="white"/>
 
   <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
@@ -175,11 +175,11 @@
 
   <xacro:sciurus17_right_arm/>
 
-  <xacro:sciurus17_right_hand/>
+  <xacro:sciurus17_right_gripper/>
 
   <xacro:sciurus17_left_arm/>
 
-  <xacro:sciurus17_left_hand/>
+  <xacro:sciurus17_left_gripper/>
 
   <xacro:unless value="$(arg use_gazebo)">
 
