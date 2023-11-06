@@ -104,8 +104,8 @@
   <xacro:property name="EFFORT_LIMIT" value="4.0"/>
   <xacro:property name="VELOCITY_LIMIT" value="5.969211435"/>
 
-  <xacro:property name="NAME_JOINT_BODY_LOWER_LIMIT" value="${radians(-110)}"/>
-  <xacro:property name="NAME_JOINT_BODY_UPPER_LIMIT" value="${radians(110)}"/>
+  <xacro:property name="JOINT_BODY_LOWER_LIMIT" value="${radians(-110)}"/>
+  <xacro:property name="JOINT_BODY_UPPER_LIMIT" value="${radians(110)}"/>
 
   <xacro:property name="JOINT_NECK_1_LOWER_LIMIT" value="${radians(-165)}"/>
   <xacro:property name="JOINT_NECK_1_UPPER_LIMIT" value="${radians(165)}"/>
