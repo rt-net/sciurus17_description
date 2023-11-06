@@ -70,8 +70,8 @@
   <xacro:property name="NAME_LINK_GRIPPER_L_B" value="l_gripperB_link"/>
   <xacro:property name="NAME_LINK_ARMARKER_L" value="l_link5_armarker"/>
 
-  <xacro:property name="NAME_JOINT_BODY" value="waist_yaw_joint"/>
   <xacro:property name="NAME_JOINT_BASE" value="base_link_to_world_joint"/>
+  <xacro:property name="NAME_JOINT_BODY" value="waist_yaw_joint"/>
 
   <xacro:property name="NAME_JOINT_NECK_1" value="neck_yaw_joint"/>
   <xacro:property name="NAME_JOINT_NECK_2" value="neck_pitch_joint"/>
