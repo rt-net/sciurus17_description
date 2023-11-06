@@ -10,8 +10,8 @@
 
       <joint name="${NAME_JOINT_BODY}">
         <command_interface name="position">
-          <param name="min">${NAME_JOINT_BODY_LOWER_LIMIT}</param>
-          <param name="max">${NAME_JOINT_BODY_UPPER_LIMIT}</param>
+          <param name="min">${JOINT_BODY_LOWER_LIMIT}</param>
+          <param name="max">${JOINT_BODY_UPPER_LIMIT}</param>
         </command_interface>
         <state_interface name="position">
           <param name="initial_value">0.0</param>
@@ -128,10 +128,10 @@
         <state_interface name="effort"/>
       </joint>
 
-      <joint name="${NAME_JOINT_HAND_R_A}">
+      <joint name="${NAME_JOINT_GRIPPER_R_A}">
         <command_interface name="position">
-          <param name="min">${JOINT_HAND_R_LOWER_LIMIT}"</param>
-          <param name="max">${JOINT_HAND_R_UPPER_LIMIT}"</param>
+          <param name="min">${JOINT_GRIPPER_R_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_GRIPPER_R_UPPER_LIMIT}"</param>
         </command_interface>
         <state_interface name="position">
           <param name="initial_value">0.0</param>
@@ -140,8 +140,8 @@
         <state_interface name="effort"/>
       </joint>
 
-      <joint name="${NAME_JOINT_HAND_R_B}">
-        <param name="mimic">${NAME_JOINT_HAND_R_A}</param>
+      <joint name="${NAME_JOINT_GRIPPER_R_B}">
+        <param name="mimic">${NAME_JOINT_GRIPPER_R_A}</param>
         <param name="multiplier">1</param>
         <command_interface name="position"/>
         <state_interface name="position"/>
@@ -233,10 +233,10 @@
         <state_interface name="effort"/>
       </joint>
 
-      <joint name="${NAME_JOINT_HAND_L_A}">
+      <joint name="${NAME_JOINT_GRIPPER_L_A}">
         <command_interface name="position">
-          <param name="min">${JOINT_HAND_L_LOWER_LIMIT}"</param>
-          <param name="max">${JOINT_HAND_L_UPPER_LIMIT}"</param>
+          <param name="min">${JOINT_GRIPPER_L_LOWER_LIMIT}"</param>
+          <param name="max">${JOINT_GRIPPER_L_UPPER_LIMIT}"</param>
         </command_interface>
         <state_interface name="position">
           <param name="initial_value">0.0</param>
@@ -245,8 +245,8 @@
         <state_interface name="effort"/>
       </joint>
 
-      <joint name="${NAME_JOINT_HAND_L_B}">
-        <param name="mimic">${NAME_JOINT_HAND_L_A}</param>
+      <joint name="${NAME_JOINT_GRIPPER_L_B}">
+        <param name="mimic">${NAME_JOINT_GRIPPER_L_A}</param>
         <param name="multiplier">1</param>
         <command_interface name="position"/>
         <state_interface name="position"/>

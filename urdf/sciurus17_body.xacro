@@ -29,8 +29,8 @@
       <child link="${NAME_LINK_BODY}" />
       <origin xyz="0.0 0.0 0.1315" rpy="0 0 0"/>
       <limit 
-        lower="${NAME_JOINT_BODY_LOWER_LIMIT}" 
-        upper="${NAME_JOINT_BODY_UPPER_LIMIT}" 
+        lower="${JOINT_BODY_LOWER_LIMIT}" 
+        upper="${JOINT_BODY_UPPER_LIMIT}" 
         effort="${EFFORT_LIMIT}" 
         velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 1"/>

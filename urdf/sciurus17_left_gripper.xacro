@@ -2,7 +2,7 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="sciurus17_left_hand">
+  <xacro:macro name="sciurus17_left_gripper">
 
     <link name="${NAME_LINK_ARM_L_7}">
       <visual>
@@ -10,7 +10,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/L_Link7.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_HAND}"/>
+        <material name="${COLOR_LINK_GRIPPER}"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -25,31 +25,31 @@
       </inertial>
     </link>
 
-    <joint name="${NAME_JOINT_HAND_L_A}" type="revolute">
+    <joint name="${NAME_JOINT_GRIPPER_L_A}" type="revolute">
       <parent link="${NAME_LINK_ARM_L_7}" />
-      <child link="${NAME_LINK_HAND_L_A}" />
+      <child link="${NAME_LINK_GRIPPER_L_A}" />
       <origin xyz="0.012 0.024 0.0" rpy="0 0 0"/>
       <limit 
-        lower="${JOINT_HAND_L_LOWER_LIMIT}" 
-        upper="${JOINT_HAND_L_UPPER_LIMIT}" 
+        lower="${JOINT_GRIPPER_L_LOWER_LIMIT}" 
+        upper="${JOINT_GRIPPER_L_UPPER_LIMIT}" 
         effort="${EFFORT_LIMIT}" 
         velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 1"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="${NAME_LINK_HAND_L_A}">
+    <link name="${NAME_LINK_GRIPPER_L_A}">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/visual/L_HandA.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/visual/L_GripperA.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_HAND}"/>
+        <material name="${COLOR_LINK_GRIPPER}"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/collision/L_HandA.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/collision/L_GripperA.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </collision>
       <inertial>
@@ -62,38 +62,38 @@
     <!--Dummy joint/link to prevent error with mimic joint
     See https://github.com/ros-controls/gazebo_ros2_control/issues/173
     -->
-    <joint name="${NAME_JOINT_HAND_L_B}_mimic" type="fixed">
+    <joint name="${NAME_JOINT_GRIPPER_L_B}_mimic" type="fixed">
       <parent link="world" />
       <child link="dummy_mimic_fix_l" />
     </joint>
     <link name="dummy_mimic_fix_l"/>
 
-    <joint name="${NAME_JOINT_HAND_L_B}" type="revolute">
+    <joint name="${NAME_JOINT_GRIPPER_L_B}" type="revolute">
       <parent link="${NAME_LINK_ARM_L_7}" />
-      <child link="${NAME_LINK_HAND_L_B}" />
+      <child link="${NAME_LINK_GRIPPER_L_B}" />
       <origin xyz="-0.012 0.024 0.0" rpy="0 0 0"/>
       <limit 
-        lower="${JOINT_HAND_L_LOWER_LIMIT}" 
-        upper="${JOINT_HAND_L_UPPER_LIMIT}" 
+        lower="${JOINT_GRIPPER_L_LOWER_LIMIT}" 
+        upper="${JOINT_GRIPPER_L_UPPER_LIMIT}" 
         effort="${EFFORT_LIMIT}" 
         velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 -1"/>
-      <mimic joint="${NAME_JOINT_HAND_L_A}" multiplier="1" offset="0"/>
+      <mimic joint="${NAME_JOINT_GRIPPER_L_A}" multiplier="1" offset="0"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="${NAME_LINK_HAND_L_B}">
+    <link name="${NAME_LINK_GRIPPER_L_B}">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/visual/L_HandB.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/visual/L_GripperB.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_HAND}"/>
+        <material name="${COLOR_LINK_GRIPPER}"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
-          <mesh filename="package://sciurus17_description/meshes/collision/L_HandB.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://sciurus17_description/meshes/collision/L_GripperB.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </collision>
       <inertial>
