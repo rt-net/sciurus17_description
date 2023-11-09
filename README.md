@@ -2,9 +2,9 @@
 
 # sciurus17_description
 
-[![industrial_ci](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml/badge.svg?branch=main)](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml)
+[![industrial_ci](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml/badge.svg?branch=ros2)](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml)
 
-[Sciurus17](https://rt-net.jp/products/sciurus17/)のURDFファイルを含むROSパッケージです。
+[Sciurus17](https://rt-net.jp/products/sciurus17/)のURDFファイルを含むROS 2パッケージです。
 
 このROSパッケージは[rt-net/sciurus17_ros](https://github.com/rt-net/sciurus17_ros)から分離しました。
 
@@ -12,21 +12,27 @@
 
 ## サポートするROSディストリビューション
 
-- Melodic
-- Noetic
+- Humble
+
+### ROS 1
+
+- [Melodic](https://github.com/rt-net/sciurus17_ros/tree/master)
+- [Noetic](https://github.com/rt-net/sciurus17_ros/tree/master)
 
 ## インストール方法
 
 ```sh
 # 本パッケージをクローンし、依存関係をインストールする
-cd ~/catkin_ws/src
-git clone https://github.com/rt-net/sciurus17_description
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+git clone -b ros2 https://github.com/rt-net/sciurus17_description
 rosdep install -r -y -i --from-paths .
 
 # パッケージをビルドする
-cd ~/catkin_ws
+cd ~/ros2_ws
 catkin_make
-source devel/setup.bash
+colcon build --symlink-install
+source install/setup.bash
 ```
 
 ## 使用方法
@@ -34,7 +40,7 @@ source devel/setup.bash
 次のコマンドを実行するとRViz上にSciurus17のモデルが表示されます
 
 ```sh
-roslaunch sciurus17_description display.launch 
+ros2 launch sciurus17_description display.launch.py
 ```
 
 ![display_launch](https://rt-net.github.io/images/sciurus17/display_launch.png)
