@@ -15,6 +15,10 @@
 - Melodic
 - Noetic
 
+### ROS 2
+
+- [Humble](https://github.com/rt-net/sciurus17_description/tree/humble-devel)
+
 ## インストール方法
 
 ```sh
