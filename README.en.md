@@ -2,9 +2,9 @@
 
 # sciurus17_description
 
-[![industrial_ci](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml/badge.svg?branch=main)](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml)
+[![industrial_ci](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml/badge.svg?branch=ros2)](https://github.com/rt-net/sciurus17_description/actions/workflows/industrial_ci.yml)
 
-ROS package with URDF description macro for [Sciurus17](https://rt-net.jp/products/sciurus17/).
+ROS 2 package with URDF description macro for [Sciurus17](https://rt-net.jp/products/sciurus17/).
 
 This ROS packages was separated from [rt-net/sciurus17_ros](https://github.com/rt-net/sciurus17_ros).
 
@@ -12,21 +12,26 @@ See [rt-net/sciurus17_ros#134](https://github.com/rt-net/sciurus17_ros/issues/13
 
 ## Supported ROS distributions
 
-- Melodic
-- Noetic
+- Humble
+
+### ROS 1
+
+- [Melodic](https://github.com/rt-net/sciurus17_ros/tree/master)
+- [Noetic](https://github.com/rt-net/sciurus17_ros/tree/master)
 
 ## Installation
 
 ```sh
 # Clone sciurus17_description and install dependencies
-cd ~/catkin_ws/src
-git clone https://github.com/rt-net/sciurus17_description
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws/src
+git clone -b ros2 https://github.com/rt-net/sciurus17_description
 rosdep install -r -y -i --from-paths .
 
 # Build the package
-cd ~/catkin_ws
-catkin_make
-source devel/setup.bash
+cd ~/ros2_ws
+colcon build --symlink-install
+source install/setup.bash
 ```
 
 ## How to Use
@@ -34,7 +39,7 @@ source devel/setup.bash
 Display a CRANE-X7 robot model on RViz with the following command:
 
 ```sh
-roslaunch sciurus17_description display.launch 
+ros2 launch sciurus17_description display.launch.py
 ```
 
 ![display_launch](https://rt-net.github.io/images/sciurus17/display_launch.png)
