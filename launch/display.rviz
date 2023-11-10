@@ -216,6 +216,116 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        base_link:
+          Value: true
+        body_link:
+          Value: true
+        chest_camera_link:
+          Value: true
+        dummy_mimic_fix_l:
+          Value: true
+        dummy_mimic_fix_r:
+          Value: true
+        head_camera_link:
+          Value: true
+        l_gripperA_link:
+          Value: true
+        l_gripperB_link:
+          Value: true
+        l_link1:
+          Value: true
+        l_link2:
+          Value: true
+        l_link3:
+          Value: true
+        l_link4:
+          Value: true
+        l_link5:
+          Value: true
+        l_link5_armarker:
+          Value: true
+        l_link6:
+          Value: true
+        l_link7:
+          Value: true
+        neck_pitch_link:
+          Value: true
+        neck_yaw_link:
+          Value: true
+        r_gripperA_link:
+          Value: true
+        r_gripperB_link:
+          Value: true
+        r_link1:
+          Value: true
+        r_link2:
+          Value: true
+        r_link3:
+          Value: true
+        r_link4:
+          Value: true
+        r_link5:
+          Value: true
+        r_link5_armarker:
+          Value: true
+        r_link6:
+          Value: true
+        r_link7:
+          Value: true
+        world:
+          Value: true
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          base_link:
+            body_link:
+              chest_camera_link:
+                {}
+              l_link1:
+                l_link2:
+                  l_link3:
+                    l_link4:
+                      l_link5:
+                        l_link5_armarker:
+                          {}
+                        l_link6:
+                          l_link7:
+                            l_gripperA_link:
+                              {}
+                            l_gripperB_link:
+                              {}
+              neck_yaw_link:
+                neck_pitch_link:
+                  head_camera_link:
+                    {}
+              r_link1:
+                r_link2:
+                  r_link3:
+                    r_link4:
+                      r_link5:
+                        r_link5_armarker:
+                          {}
+                        r_link6:
+                          r_link7:
+                            r_gripperA_link:
+                              {}
+                            r_gripperB_link:
+                              {}
+          dummy_mimic_fix_l:
+            {}
+          dummy_mimic_fix_r:
+            {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -271,7 +381,7 @@ Visualization Manager:
       Focal Point:
         X: 0
         Y: 0
-        Z: 0
+        Z: 0.30000001192092896
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
