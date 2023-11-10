@@ -15,6 +15,10 @@ See [rt-net/sciurus17_ros#134](https://github.com/rt-net/sciurus17_ros/issues/13
 - Melodic
 - Noetic
 
+### ROS 2
+
+- [Humble](https://github.com/rt-net/sciurus17_description/tree/humble-devel)
+
 ## Installation
 
 ```sh
