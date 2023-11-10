@@ -30,7 +30,6 @@ rosdep install -r -y -i --from-paths .
 
 # Build the package
 cd ~/ros2_ws
-catkin_make
 colcon build --symlink-install
 source install/setup.bash
 ```
