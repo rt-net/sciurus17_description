@@ -44,10 +44,6 @@
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_CHEST_CAMERA}">
-      <xacro:material_gazebo_black/>
-    </gazebo>
-
     <gazebo reference="${NAME_LINK_NECK_1}">
       <xacro:material_gazebo_white/>
     </gazebo>
@@ -56,8 +52,62 @@
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_HEAD_CAMERA}">
+    <gazebo>
+      <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+        <render_engine>ogre2</render_engine>
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="${NAME_HEAD_CAMERA_PREFIX}_color_frame">
       <xacro:material_gazebo_black/>
+
+      <sensor name="sim_realsense_d415" type="rgbd_camera">
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <topic>${NAME_HEAD_CAMERA_PREFIX}</topic>
+        <ignition_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</ignition_frame_id>
+        <camera name="realsense_d415">
+          <horizontal_fov>${radians(69.4)}</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>360</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>10.0</far>
+          </clip>
+          <depth_camera>
+            <clip>
+              <near>0.1</near>
+              <far>3.0</far>
+            </clip>
+          </depth_camera>
+          <optical_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame</optical_frame_id>
+        </camera>
+      </sensor>
+    </gazebo>
+
+    <gazebo reference="${NAME_LINK_CHEST_CAMERA}">
+      <xacro:material_gazebo_black/>
+
+      <sensor name="${NAME_CHEST_CAMERA_PREFIX}" type="camera">
+        <pose relative_to="${NAME_LINK_CHEST_CAMERA}">0 0 0 ${radians(90)} ${radians(-90)} 0</pose>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <topic>${NAME_CHEST_CAMERA_PREFIX}/image_raw</topic>
+        <ignition_frame_id>${NAME_LINK_CHEST_CAMERA}</ignition_frame_id>
+        <camera name="${NAME_CHEST_CAMERA_PREFIX}">
+          <horizontal_fov>${radians(120)}</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>360</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>10.0</far>
+          </clip>
+        </camera>
+      </sensor>
     </gazebo>
 
     <gazebo reference="${NAME_LINK_ARM_R_1}">

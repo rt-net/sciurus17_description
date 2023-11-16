@@ -45,8 +45,11 @@
   <xacro:property name="NAME_LINK_NECK_1" value="neck_yaw_link"/>
   <xacro:property name="NAME_LINK_NECK_2" value="neck_pitch_link"/>
 
-  <xacro:property name="NAME_LINK_HEAD_CAMERA" value="head_camera_link"/>
-  <xacro:property name="NAME_LINK_CHEST_CAMERA" value="chest_camera_link"/>
+  <xacro:property name="NAME_HEAD_CAMERA_PREFIX" value="head_camera"/>
+  <xacro:property name="NAME_CHEST_CAMERA_PREFIX" value="chest_camera"/>
+
+  <xacro:property name="NAME_LINK_HEAD_CAMERA" value="${NAME_HEAD_CAMERA_PREFIX}_link"/>
+  <xacro:property name="NAME_LINK_CHEST_CAMERA" value="${NAME_CHEST_CAMERA_PREFIX}_link"/>
 
   <xacro:property name="NAME_LINK_ARM_R_1" value="r_link1"/>
   <xacro:property name="NAME_LINK_ARM_R_2" value="r_link2"/>
@@ -192,6 +195,22 @@
     <xacro:gazebo_robot_settings/>
 
     <xacro:sciurus17_gazebo_ros2_control_settings/>
+
+    <joint name="${NAME_HEAD_CAMERA_PREFIX}_color_joint" type="fixed">
+      <origin xyz="0 0.015 0" rpy="0 0 0" />
+      <parent link="${NAME_LINK_HEAD_CAMERA}" />
+      <child link="${NAME_HEAD_CAMERA_PREFIX}_color_frame" />
+    </joint>
+
+    <link name="${NAME_HEAD_CAMERA_PREFIX}_color_frame"/>
+
+    <joint name="${NAME_HEAD_CAMERA_PREFIX}_color_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${radians(-90)} 0 ${radians(-90)}" />
+      <parent link="${NAME_HEAD_CAMERA_PREFIX}_color_frame" />
+      <child link="${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame" />
+    </joint>
+
+    <link name="${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame"/>
 
   </xacro:if>
 </robot>
