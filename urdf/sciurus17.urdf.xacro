@@ -166,7 +166,6 @@
   <xacro:property name="COLOR_LINK_HEAD" value="white"/>
   <xacro:property name="COLOR_LINK_ARM" value="white"/>
   <xacro:property name="COLOR_LINK_GRIPPER" value="red"/>
-  <xacro:property name="COLOR_LINK_CAMERA" value="white"/>
 
   <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
   <link name="world"/>
