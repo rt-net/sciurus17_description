@@ -67,10 +67,14 @@
         <topic>${NAME_HEAD_CAMERA_PREFIX}</topic>
         <ignition_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</ignition_frame_id>
         <camera name="realsense_d415">
-          <horizontal_fov>${radians(69.4)}</horizontal_fov>
+          <xacro:property name="head_camera_width" value="640"/>
+          <xacro:property name="head_camera_height" value="360"/>
+          <xacro:property name="head_camera_hfov" value="${radians(69.4)}"/>
+          <xacro:property name="head_camera_focal_length" value="${head_camera_width / (2 * tan(head_camera_hfov / 2))}"/>
+          <horizontal_fov>${head_camera_hfov}</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>360</height>
+            <width>${head_camera_width}</width>
+            <height>${head_camera_height}</height>
           </image>
           <clip>
             <near>0.1</near>
@@ -83,6 +87,23 @@
             </clip>
           </depth_camera>
           <optical_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame</optical_frame_id>
+          <lens>
+            <intrinsics>
+              <fx>${head_camera_focal_length}</fx>
+              <fy>${head_camera_focal_length}</fy>
+              <cx>${(head_camera_width + 1) / 2}</cx>
+              <cy>${(head_camera_height + 1) / 2}</cy>
+              <s>1.0</s>
+            </intrinsics>
+            <projection>
+              <p_fx>${head_camera_focal_length}</p_fx>
+              <p_fy>${head_camera_focal_length}</p_fy>
+              <p_cx>${(head_camera_width + 1) / 2}</p_cx>
+              <p_cy>${(head_camera_height + 1) / 2}</p_cy>
+              <tx>0</tx>
+              <ty>0</ty>
+            </projection>
+          </lens>
         </camera>
       </sensor>
     </gazebo>
@@ -97,15 +118,36 @@
         <topic>${NAME_CHEST_CAMERA_PREFIX}/image_raw</topic>
         <ignition_frame_id>${NAME_LINK_CHEST_CAMERA}</ignition_frame_id>
         <camera name="${NAME_CHEST_CAMERA_PREFIX}">
+          <xacro:property name="chest_camera_width" value="640"/>
+          <xacro:property name="chest_camera_height" value="360"/>
+          <xacro:property name="chest_camera_hfov" value="${radians(120)}"/>
+          <xacro:property name="chest_camera_focal_length" value="${chest_camera_width / (2 * tan(chest_camera_hfov / 2))}"/>
           <horizontal_fov>${radians(120)}</horizontal_fov>
           <image>
-            <width>640</width>
-            <height>360</height>
+            <width>${chest_camera_width}</width>
+            <height>${chest_camera_height}</height>
           </image>
           <clip>
             <near>0.1</near>
             <far>10.0</far>
           </clip>
+          <lens>
+            <intrinsics>
+              <fx>${chest_camera_focal_length}</fx>
+              <fy>${chest_camera_focal_length}</fy>
+              <cx>${(chest_camera_width + 1) / 2}</cx>
+              <cy>${(chest_camera_height + 1) / 2}</cy>
+              <s>1.0</s>
+            </intrinsics>
+            <projection>
+              <p_fx>${chest_camera_focal_length}</p_fx>
+              <p_fy>${chest_camera_focal_length}</p_fy>
+              <p_cx>${(chest_camera_width + 1) / 2}</p_cx>
+              <p_cy>${(chest_camera_height + 1) / 2}</p_cy>
+              <tx>0</tx>
+              <ty>0</ty>
+            </projection>
+          </lens>
         </camera>
       </sensor>
     </gazebo>

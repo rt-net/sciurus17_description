@@ -31,6 +31,9 @@
   <xacro:property name="GZ_CONTROL_CONFIG_PACKAGE" value="$(arg gz_control_config_package)"/>
   <xacro:property name="GZ_CONTROL_CONFIG_FILE_PATH" value="$(arg gz_control_config_file_path)"/>
 
+  <xacro:property name="NAME_HEAD_CAMERA_PREFIX" value="head_camera"/>
+  <xacro:property name="NAME_CHEST_CAMERA_PREFIX" value="chest_camera"/>
+
   <material name="white">
     <color rgba="0.9 0.9 0.9 1.0"/>
   </material>
@@ -44,9 +47,6 @@
 
   <xacro:property name="NAME_LINK_NECK_1" value="neck_yaw_link"/>
   <xacro:property name="NAME_LINK_NECK_2" value="neck_pitch_link"/>
-
-  <xacro:property name="NAME_HEAD_CAMERA_PREFIX" value="head_camera"/>
-  <xacro:property name="NAME_CHEST_CAMERA_PREFIX" value="chest_camera"/>
 
   <xacro:property name="NAME_LINK_HEAD_CAMERA" value="${NAME_HEAD_CAMERA_PREFIX}_link"/>
   <xacro:property name="NAME_LINK_CHEST_CAMERA" value="${NAME_CHEST_CAMERA_PREFIX}_link"/>
