@@ -68,7 +68,7 @@ def test_use_head_camera():
     rdl.use_head_camera = 'true'
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
-    assert 'relative_to="head_camera_link"' in exec_load(rdl)
+    assert 'reference="head_camera_color_frame"' in exec_load(rdl)
 
 
 def test_use_chest_camera():
@@ -78,4 +78,4 @@ def test_use_chest_camera():
     rdl.use_chest_camera = 'true'
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
-    assert 'relative_to="chest_camera_link"' in exec_load(rdl)
+    assert 'reference="chest_camera_link"' in exec_load(rdl)
