@@ -18,12 +18,16 @@
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17.gazebo_ros2_control.xacro"/>
 
   <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="use_head_camera" default="false" />
+  <xacro:arg name="use_chest_camera" default="false" />
   <xacro:arg name="port_name" default="/dev/sciurus17spine" />
   <xacro:arg name="baudrate" default="3000000" />
   <xacro:arg name="timeout_seconds" default="1.0" />
   <xacro:arg name="manipulator_config_file_path" default="" />
   <xacro:arg name="gz_control_config_package" default="" />
   <xacro:arg name="gz_control_config_file_path" default="" />
+  <xacro:property name="USE_HEAD_CAMERA" value="$(arg use_head_camera)"/>
+  <xacro:property name="USE_CHEST_CAMERA" value="$(arg use_chest_camera)"/>
   <xacro:property name="PORT_NAME" value="$(arg port_name)"/>
   <xacro:property name="BAUDRATE" value="$(arg baudrate)"/>
   <xacro:property name="TIMEOUT_SECONDS" value="$(arg timeout_seconds)"/>
