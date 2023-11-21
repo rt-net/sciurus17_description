@@ -121,7 +121,7 @@
             <xacro:property name="chest_camera_height" value="360"/>
             <xacro:property name="chest_camera_hfov" value="${radians(120)}"/>
             <xacro:property name="chest_camera_focal_length" value="${chest_camera_width / (2 * tan(chest_camera_hfov / 2))}"/>
-            <horizontal_fov>${radians(120)}</horizontal_fov>
+            <horizontal_fov>${chest_camera_hfov}</horizontal_fov>
             <image>
               <width>${chest_camera_width}</width>
               <height>${chest_camera_height}</height>
