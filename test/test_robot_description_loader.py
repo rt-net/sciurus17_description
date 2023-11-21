@@ -59,3 +59,23 @@ def test_use_gazebo():
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
     assert 'ign_ros2_control/IgnitionSystem' in exec_load(rdl)
+
+
+def test_use_gazebo_head_camera():
+    # use_gazebo_head_cameraが変更され、xacroにhead_camera_linkがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_gazebo = 'true'
+    rdl.use_gazebo_head_camera = 'true'
+    rdl.gz_control_config_package = 'sciurus17_description'
+    rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
+    assert 'reference="head_camera_color_frame"' in exec_load(rdl)
+
+
+def test_use_gazebo_chest_camera():
+    # use_gazebo_chest_cameraが変更され、xacroにchest_camera_linkがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_gazebo = 'true'
+    rdl.use_gazebo_chest_camera = 'true'
+    rdl.gz_control_config_package = 'sciurus17_description'
+    rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
+    assert 'reference="chest_camera_link"' in exec_load(rdl)

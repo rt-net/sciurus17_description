@@ -63,21 +63,7 @@
       <origin xyz="0.114576 0.0 0.217659" rpy="-2.7925268032 0 -1.5707963268"/>
     </joint>
 
-    <link name="${NAME_LINK_CHEST_CAMERA}">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <cylinder length="0.002" radius="0.003"/>
-        </geometry>
-        <material name="${COLOR_LINK_CAMERA}"/>
-      </visual>
-      <collision>
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-        <geometry>
-          <cylinder length="0.002" radius="0.003"/>
-        </geometry>
-      </collision>
-    </link>
+    <link name="${NAME_LINK_CHEST_CAMERA}"/>
 
   </xacro:macro>
 

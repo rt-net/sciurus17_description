@@ -76,21 +76,7 @@
       <origin xyz="0.081785 0.020 0.091" rpy="0 0 0"/>
     </joint>
 
-    <link name="${NAME_LINK_HEAD_CAMERA}">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-          <cylinder length="0.002" radius="0.003"/>
-        </geometry>
-        <material name="${COLOR_LINK_CAMERA}"/>
-      </visual>
-      <collision>
-        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-        <geometry>
-          <cylinder length="0.002" radius="0.003"/>
-        </geometry>
-      </collision>
-    </link>
+    <link name="${NAME_LINK_HEAD_CAMERA}"/>
 
   </xacro:macro>
 

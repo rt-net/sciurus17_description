@@ -18,18 +18,25 @@
   <xacro:include filename="$(find sciurus17_description)/urdf/sciurus17.gazebo_ros2_control.xacro"/>
 
   <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="use_gazebo_head_camera" default="false" />
+  <xacro:arg name="use_gazebo_chest_camera" default="false" />
   <xacro:arg name="port_name" default="/dev/sciurus17spine" />
   <xacro:arg name="baudrate" default="3000000" />
   <xacro:arg name="timeout_seconds" default="1.0" />
   <xacro:arg name="manipulator_config_file_path" default="" />
   <xacro:arg name="gz_control_config_package" default="" />
   <xacro:arg name="gz_control_config_file_path" default="" />
+  <xacro:property name="USE_GAZEBO_HEAD_CAMERA" value="$(arg use_gazebo_head_camera)"/>
+  <xacro:property name="USE_GAZEBO_CHEST_CAMERA" value="$(arg use_gazebo_chest_camera)"/>
   <xacro:property name="PORT_NAME" value="$(arg port_name)"/>
   <xacro:property name="BAUDRATE" value="$(arg baudrate)"/>
   <xacro:property name="TIMEOUT_SECONDS" value="$(arg timeout_seconds)"/>
   <xacro:property name="MANIPULATOR_CONFIG_FILE_PATH" value="$(arg manipulator_config_file_path)"/>
   <xacro:property name="GZ_CONTROL_CONFIG_PACKAGE" value="$(arg gz_control_config_package)"/>
   <xacro:property name="GZ_CONTROL_CONFIG_FILE_PATH" value="$(arg gz_control_config_file_path)"/>
+
+  <xacro:property name="NAME_HEAD_CAMERA_PREFIX" value="head_camera"/>
+  <xacro:property name="NAME_CHEST_CAMERA_PREFIX" value="chest_camera"/>
 
   <material name="white">
     <color rgba="0.9 0.9 0.9 1.0"/>
@@ -45,8 +52,8 @@
   <xacro:property name="NAME_LINK_NECK_1" value="neck_yaw_link"/>
   <xacro:property name="NAME_LINK_NECK_2" value="neck_pitch_link"/>
 
-  <xacro:property name="NAME_LINK_HEAD_CAMERA" value="head_camera_link"/>
-  <xacro:property name="NAME_LINK_CHEST_CAMERA" value="chest_camera_link"/>
+  <xacro:property name="NAME_LINK_HEAD_CAMERA" value="${NAME_HEAD_CAMERA_PREFIX}_link"/>
+  <xacro:property name="NAME_LINK_CHEST_CAMERA" value="${NAME_CHEST_CAMERA_PREFIX}_link"/>
 
   <xacro:property name="NAME_LINK_ARM_R_1" value="r_link1"/>
   <xacro:property name="NAME_LINK_ARM_R_2" value="r_link2"/>
@@ -159,7 +166,6 @@
   <xacro:property name="COLOR_LINK_HEAD" value="white"/>
   <xacro:property name="COLOR_LINK_ARM" value="white"/>
   <xacro:property name="COLOR_LINK_GRIPPER" value="red"/>
-  <xacro:property name="COLOR_LINK_CAMERA" value="white"/>
 
   <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
   <link name="world"/>
@@ -192,6 +198,22 @@
     <xacro:gazebo_robot_settings/>
 
     <xacro:sciurus17_gazebo_ros2_control_settings/>
+
+    <joint name="${NAME_HEAD_CAMERA_PREFIX}_color_joint" type="fixed">
+      <origin xyz="0 0.015 0" rpy="0 0 0" />
+      <parent link="${NAME_LINK_HEAD_CAMERA}" />
+      <child link="${NAME_HEAD_CAMERA_PREFIX}_color_frame" />
+    </joint>
+
+    <link name="${NAME_HEAD_CAMERA_PREFIX}_color_frame"/>
+
+    <joint name="${NAME_HEAD_CAMERA_PREFIX}_color_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="${radians(-90)} 0 ${radians(-90)}" />
+      <parent link="${NAME_HEAD_CAMERA_PREFIX}_color_frame" />
+      <child link="${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame" />
+    </joint>
+
+    <link name="${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame"/>
 
   </xacro:if>
 </robot>
