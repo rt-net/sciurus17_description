@@ -58,7 +58,7 @@
       </plugin>
     </gazebo>
 
-    <xacro:if value="${USE_HEAD_CAMERA}">
+    <xacro:if value="${USE_GAZEBO_HEAD_CAMERA}">
       <gazebo reference="${NAME_HEAD_CAMERA_PREFIX}_color_frame">
         <sensor name="sim_realsense_d415" type="rgbd_camera">
           <update_rate>10</update_rate>
@@ -108,7 +108,7 @@
       </gazebo>
     </xacro:if>
 
-    <xacro:if value="${USE_CHEST_CAMERA}">
+    <xacro:if value="${USE_GAZEBO_CHEST_CAMERA}">
       <gazebo reference="${NAME_LINK_CHEST_CAMERA}">
         <sensor name="${NAME_CHEST_CAMERA_PREFIX}" type="camera">
           <pose relative_to="${NAME_LINK_CHEST_CAMERA}">0 0 0 ${radians(90)} ${radians(-90)} 0</pose>

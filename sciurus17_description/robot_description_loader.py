@@ -18,8 +18,8 @@ class RobotDescriptionLoader():
         self.timeout_seconds = '1.0'
         self.manipulator_config_file_path = ''
         self.use_gazebo = 'false'
-        self.use_head_camera = 'false'
-        self.use_chest_camera = 'false'
+        self.use_gazebo_head_camera = 'false'
+        self.use_gazebo_chest_camera = 'false'
         self.gz_control_config_package = ''
         self.gz_control_config_file_path = ''
 
@@ -32,8 +32,8 @@ class RobotDescriptionLoader():
                 ' timeout_seconds:=', self.timeout_seconds,
                 ' manipulator_config_file_path:=', self.manipulator_config_file_path,
                 ' use_gazebo:=', self.use_gazebo,
-                ' use_head_camera:=', self.use_head_camera,
-                ' use_chest_camera:=', self.use_chest_camera,
+                ' use_gazebo_head_camera:=', self.use_gazebo_head_camera,
+                ' use_gazebo_chest_camera:=', self.use_gazebo_chest_camera,
                 ' gz_control_config_package:=', self.gz_control_config_package,
                 ' gz_control_config_file_path:=', self.gz_control_config_file_path
                 ])
