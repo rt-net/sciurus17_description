@@ -1,8 +1,8 @@
 # Copyright 2023 RT Corporation
 
-from sciurus17_description.robot_description_loader import RobotDescriptionLoader
 from launch.launch_context import LaunchContext
 import pytest
+from sciurus17_description.robot_description_loader import RobotDescriptionLoader
 
 
 def exec_load(loader):
