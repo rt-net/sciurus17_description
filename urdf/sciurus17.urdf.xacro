@@ -121,7 +121,8 @@
 
   <xacro:property name="JOINT_ARM_R_1_LOWER_LIMIT" value="${radians(-90)}"/>
   <xacro:property name="JOINT_ARM_R_1_UPPER_LIMIT" value="${radians(90)}"/>
-  <xacro:property name="JOINT_ARM_R_2_LOWER_LIMIT" value="${radians(-90)}"/>
+  <!-- 初期角度が範囲外だとプランニングで失敗するため範囲を広げる -->
+  <xacro:property name="JOINT_ARM_R_2_LOWER_LIMIT" value="${radians(-92)}"/>
   <xacro:property name="JOINT_ARM_R_2_UPPER_LIMIT" value="${radians(0)}"/>
   <xacro:property name="JOINT_ARM_R_3_LOWER_LIMIT" value="${radians(-90)}"/>
   <xacro:property name="JOINT_ARM_R_3_UPPER_LIMIT" value="${radians(90)}"/>
@@ -142,8 +143,9 @@
 
   <xacro:property name="JOINT_ARM_L_1_LOWER_LIMIT" value="${radians(-90)}"/>
   <xacro:property name="JOINT_ARM_L_1_UPPER_LIMIT" value="${radians(90)}"/>
+  <!-- 初期角度が範囲外だとプランニングで失敗するため範囲を広げる -->
   <xacro:property name="JOINT_ARM_L_2_LOWER_LIMIT" value="${radians(0)}"/>
-  <xacro:property name="JOINT_ARM_L_2_UPPER_LIMIT" value="${radians(90)}"/>
+  <xacro:property name="JOINT_ARM_L_2_UPPER_LIMIT" value="${radians(92)}"/>
   <xacro:property name="JOINT_ARM_L_3_LOWER_LIMIT" value="${radians(-90)}"/>
   <xacro:property name="JOINT_ARM_L_3_UPPER_LIMIT" value="${radians(90)}"/>
   <xacro:property name="JOINT_ARM_L_4_LOWER_LIMIT" value="${radians(-157)}"/>
