@@ -31,7 +31,7 @@
 
   <xacro:macro name="gazebo_robot_settings">
     <gazebo>
-      <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+      <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
         <parameters>$(find ${GZ_CONTROL_CONFIG_PACKAGE})/${GZ_CONTROL_CONFIG_FILE_PATH}</parameters>
       </plugin>
     </gazebo>
