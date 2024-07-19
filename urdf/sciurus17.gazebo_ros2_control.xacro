@@ -5,7 +5,7 @@
 
     <ros2_control name="sciurus17" type="system">
       <hardware>
-        <plugin>ign_ros2_control/IgnitionSystem</plugin>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
       </hardware>
 
       <joint name="${NAME_JOINT_BODY}">
