@@ -79,3 +79,12 @@ def test_use_gazebo_chest_camera():
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
     assert 'reference="chest_camera_link"' in exec_load(rdl)
+
+
+def test_use_mock_components():
+    # use_gazeboが変更され、xacroにgz_ros2_controlがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_mock_components = 'true'
+    rdl.gz_control_config_package = 'sciurus17_description'
+    rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
+    assert 'mock_components/GenericSystem' in exec_load(rdl)
