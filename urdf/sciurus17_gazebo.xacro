@@ -31,7 +31,7 @@
 
   <xacro:macro name="gazebo_robot_settings">
     <gazebo>
-      <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
+      <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
         <parameters>$(find ${GZ_CONTROL_CONFIG_PACKAGE})/${GZ_CONTROL_CONFIG_FILE_PATH}</parameters>
       </plugin>
     </gazebo>
@@ -53,7 +53,7 @@
     </gazebo>
 
     <gazebo>
-      <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+      <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
         <render_engine>ogre2</render_engine>
       </plugin>
     </gazebo>
@@ -64,7 +64,7 @@
           <update_rate>10</update_rate>
           <always_on>true</always_on>
           <topic>${NAME_HEAD_CAMERA_PREFIX}</topic>
-          <ignition_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</ignition_frame_id>
+          <gz_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</gz_frame_id>
           <camera name="realsense_d415">
             <xacro:property name="head_camera_width" value="640"/>
             <xacro:property name="head_camera_height" value="360"/>
@@ -115,7 +115,7 @@
           <update_rate>10</update_rate>
           <always_on>true</always_on>
           <topic>${NAME_CHEST_CAMERA_PREFIX}/image_raw</topic>
-          <ignition_frame_id>${NAME_LINK_CHEST_CAMERA}</ignition_frame_id>
+          <gz_frame_id>${NAME_LINK_CHEST_CAMERA}</gz_frame_id>
           <camera name="${NAME_CHEST_CAMERA_PREFIX}">
             <xacro:property name="chest_camera_width" value="640"/>
             <xacro:property name="chest_camera_height" value="360"/>

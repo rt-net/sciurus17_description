@@ -13,6 +13,7 @@ See [rt-net/sciurus17_ros#134](https://github.com/rt-net/sciurus17_ros/issues/13
 ## Supported ROS distributions
 
 - Humble
+- Jazzy
 
 ### ROS 1
 

@@ -1,8 +1,8 @@
 # Copyright 2023 RT Corporation
 
-from sciurus17_description.robot_description_loader import RobotDescriptionLoader
 from launch.launch_context import LaunchContext
 import pytest
+from sciurus17_description.robot_description_loader import RobotDescriptionLoader
 
 
 def exec_load(loader):
@@ -53,12 +53,12 @@ def test_manipulator_config_file_path():
 
 
 def test_use_gazebo():
-    # use_gazeboが変更され、xacroにign_ros2_controlがセットされることを期待
+    # use_gazeboが変更され、xacroにgz_ros2_controlがセットされることを期待
     rdl = RobotDescriptionLoader()
     rdl.use_gazebo = 'true'
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
-    assert 'ign_ros2_control/IgnitionSystem' in exec_load(rdl)
+    assert 'gz_ros2_control/GazeboSimSystem' in exec_load(rdl)
 
 
 def test_use_gazebo_head_camera():
@@ -79,3 +79,12 @@ def test_use_gazebo_chest_camera():
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
     assert 'reference="chest_camera_link"' in exec_load(rdl)
+
+
+def test_use_mock_components():
+    # use_gazeboが変更され、xacroにgz_ros2_controlがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_mock_components = 'true'
+    rdl.gz_control_config_package = 'sciurus17_description'
+    rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
+    assert 'mock_components/GenericSystem' in exec_load(rdl)
