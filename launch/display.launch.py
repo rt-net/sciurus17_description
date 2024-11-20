@@ -1,9 +1,9 @@
 # Copyright 2023 RT Corporation
 
 from ament_index_python.packages import get_package_share_directory
-from sciurus17_description.robot_description_loader import RobotDescriptionLoader
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from sciurus17_description.robot_description_loader import RobotDescriptionLoader
 
 
 def generate_launch_description():
