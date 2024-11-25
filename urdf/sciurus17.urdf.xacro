@@ -20,6 +20,7 @@
   <xacro:arg name="use_gazebo" default="false" />
   <xacro:arg name="use_gazebo_head_camera" default="false" />
   <xacro:arg name="use_gazebo_chest_camera" default="false" />
+  <xacro:arg name="use_mock_components" default="false" />
   <xacro:arg name="port_name" default="/dev/sciurus17spine" />
   <xacro:arg name="baudrate" default="3000000" />
   <xacro:arg name="timeout_seconds" default="1.0" />
@@ -28,6 +29,7 @@
   <xacro:arg name="gz_control_config_file_path" default="" />
   <xacro:property name="USE_GAZEBO_HEAD_CAMERA" value="$(arg use_gazebo_head_camera)"/>
   <xacro:property name="USE_GAZEBO_CHEST_CAMERA" value="$(arg use_gazebo_chest_camera)"/>
+  <xacro:property name="USE_MOCK_COMPONENTS" value="$(arg use_mock_components)"/>
   <xacro:property name="PORT_NAME" value="$(arg port_name)"/>
   <xacro:property name="BAUDRATE" value="$(arg baudrate)"/>
   <xacro:property name="TIMEOUT_SECONDS" value="$(arg timeout_seconds)"/>

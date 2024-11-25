@@ -5,11 +5,16 @@
 
     <ros2_control name="sciurus17" type="system">
       <hardware>
-        <plugin>sciurus17_hardware/Sciurus17Hardware</plugin>
-        <param name="port_name">${PORT_NAME}</param>
-        <param name="baudrate">${BAUDRATE}</param>
-        <param name="timeout_seconds">${TIMEOUT_SECONDS}</param>
-        <param name="manipulator_config_file_path">${MANIPULATOR_CONFIG_FILE_PATH}</param>
+        <xacro:if value="${USE_MOCK_COMPONENTS}">
+          <plugin>mock_components/GenericSystem</plugin>
+        </xacro:if>
+        <xacro:unless value="${USE_MOCK_COMPONENTS}">
+          <plugin>sciurus17_hardware/Sciurus17Hardware</plugin>
+          <param name="port_name">${PORT_NAME}</param>
+          <param name="baudrate">${BAUDRATE}</param>
+          <param name="timeout_seconds">${TIMEOUT_SECONDS}</param>
+          <param name="manipulator_config_file_path">${MANIPULATOR_CONFIG_FILE_PATH}</param>
+        </xacro:unless>
       </hardware>
 
       <joint name="${NAME_JOINT_BODY}">

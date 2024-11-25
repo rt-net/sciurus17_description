@@ -20,6 +20,7 @@ class RobotDescriptionLoader():
         self.use_gazebo = 'false'
         self.use_gazebo_head_camera = 'false'
         self.use_gazebo_chest_camera = 'false'
+        self.use_mock_components = 'false'
         self.gz_control_config_package = ''
         self.gz_control_config_file_path = ''
 
@@ -34,6 +35,7 @@ class RobotDescriptionLoader():
                 ' use_gazebo:=', self.use_gazebo,
                 ' use_gazebo_head_camera:=', self.use_gazebo_head_camera,
                 ' use_gazebo_chest_camera:=', self.use_gazebo_chest_camera,
+                ' use_mock_components:=', self.use_mock_components,
                 ' gz_control_config_package:=', self.gz_control_config_package,
                 ' gz_control_config_file_path:=', self.gz_control_config_file_path
                 ])
