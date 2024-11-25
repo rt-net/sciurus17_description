@@ -82,7 +82,7 @@ def test_use_gazebo_chest_camera():
 
 
 def test_use_mock_components():
-    # use_gazeboが変更され、xacroにgz_ros2_controlがセットされることを期待
+    # use_mock_componentsが変更され、xacroにmock_componentsがセットされることを期待
     rdl = RobotDescriptionLoader()
     rdl.use_mock_components = 'true'
     rdl.gz_control_config_package = 'sciurus17_description'
