@@ -64,7 +64,7 @@
           <update_rate>10</update_rate>
           <always_on>true</always_on>
           <topic>${NAME_HEAD_CAMERA_PREFIX}</topic>
-          <gz_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</gz_frame_id>
+          <frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</frame_id>
           <camera name="realsense_d415">
             <xacro:property name="head_camera_width" value="640"/>
             <xacro:property name="head_camera_height" value="360"/>
@@ -115,7 +115,7 @@
           <update_rate>10</update_rate>
           <always_on>true</always_on>
           <topic>${NAME_CHEST_CAMERA_PREFIX}/image_raw</topic>
-          <gz_frame_id>${NAME_LINK_CHEST_CAMERA}</gz_frame_id>
+          <frame_id>${NAME_LINK_CHEST_CAMERA}</frame_id>
           <camera name="${NAME_CHEST_CAMERA_PREFIX}">
             <xacro:property name="chest_camera_width" value="640"/>
             <xacro:property name="chest_camera_height" value="360"/>
