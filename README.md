@@ -12,13 +12,13 @@
 
 ## サポートするROSディストリビューション
 
-- [Humble](https://github.com/rt-net/sciurus17_ros/tree/humble)
-- [Jazzy](https://github.com/rt-net/sciurus17_ros/tree/jazzy)
+- [Humble](https://github.com/rt-net/sciurus17_description/tree/humble)
+- [Jazzy](https://github.com/rt-net/sciurus17_description/tree/jazzy)
 
 ### ROS 1
 
-- [Melodic](https://github.com/rt-net/sciurus17_ros/tree/master)
-- [Noetic](https://github.com/rt-net/sciurus17_ros/tree/master)
+- [Melodic](https://github.com/rt-net/sciurus17_description/tree/master)
+- [Noetic](https://github.com/rt-net/sciurus17_description/tree/master)
 
 ## インストール方法
 
