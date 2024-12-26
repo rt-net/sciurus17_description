@@ -17,8 +17,8 @@
 
 ### ROS 1
 
-- [Melodic](https://github.com/rt-net/sciurus17_description/tree/master)
-- [Noetic](https://github.com/rt-net/sciurus17_description/tree/master)
+- [Melodic](https://github.com/rt-net/sciurus17_description/tree/main)
+- [Noetic](https://github.com/rt-net/sciurus17_description/tree/main)
 
 ## インストール方法
 
