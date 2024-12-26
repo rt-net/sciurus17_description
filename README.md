@@ -12,8 +12,8 @@
 
 ## サポートするROSディストリビューション
 
-- Humble
-- Jazzy
+- [Humble](https://github.com/rt-net/sciurus17_ros/tree/humble)
+- [Jazzy](https://github.com/rt-net/sciurus17_ros/tree/jazzy)
 
 ### ROS 1
 
@@ -26,7 +26,7 @@
 # 本パッケージをクローンし、依存関係をインストールする
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
-git clone -b ros2 https://github.com/rt-net/sciurus17_description
+git clone -b $ROS_DISTRO https://github.com/rt-net/sciurus17_description
 rosdep install -r -y -i --from-paths .
 
 # パッケージをビルドする
