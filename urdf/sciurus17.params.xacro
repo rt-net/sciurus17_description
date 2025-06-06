@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+
+<robot
+    name="${ROBOT_NAME}"
+    xmlns:xacro="http://ros.org/wiki/xacro"
+    xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+
+  <xacro:arg name="use_gazebo" default="false" />
+  <xacro:arg name="use_gazebo_head_camera" default="false" />
+  <xacro:arg name="use_gazebo_chest_camera" default="false" />
+  <xacro:arg name="use_mock_components" default="false" />
+  <xacro:arg name="port_name" default="/dev/sciurus17spine" />
+  <xacro:arg name="baudrate" default="3000000" />
+  <xacro:arg name="timeout_seconds" default="1.0" />
+  <xacro:arg name="manipulator_config_file_path" default="" />
+  <xacro:arg name="gz_control_config_package" default="" />
+  <xacro:arg name="gz_control_config_file_path" default="" />
+  
+  <xacro:property name="USE_GAZEBO_HEAD_CAMERA" value="$(arg use_gazebo_head_camera)"/>
+  <xacro:property name="USE_GAZEBO_CHEST_CAMERA" value="$(arg use_gazebo_chest_camera)"/>
+  <xacro:property name="USE_MOCK_COMPONENTS" value="$(arg use_mock_components)"/>
+  <xacro:property name="PORT_NAME" value="$(arg port_name)"/>
+  <xacro:property name="BAUDRATE" value="$(arg baudrate)"/>
+  <xacro:property name="TIMEOUT_SECONDS" value="$(arg timeout_seconds)"/>
+  <xacro:property name="MANIPULATOR_CONFIG_FILE_PATH" value="$(arg manipulator_config_file_path)"/>
+  <xacro:property name="GZ_CONTROL_CONFIG_PACKAGE" value="$(arg gz_control_config_package)"/>
+  <xacro:property name="GZ_CONTROL_CONFIG_FILE_PATH" value="$(arg gz_control_config_file_path)"/>
+
+  <xacro:property name="NAME_HEAD_CAMERA_PREFIX" value="head_camera"/>
+  <xacro:property name="NAME_CHEST_CAMERA_PREFIX" value="chest_camera"/>
+
+  <xacro:property name="NAME_LINK_BASE" value="base_link"/>
+  <xacro:property name="NAME_LINK_BODY" value="body_link"/>
+
+  <xacro:property name="NAME_LINK_NECK_1" value="neck_yaw_link"/>
+  <xacro:property name="NAME_LINK_NECK_2" value="neck_pitch_link"/>
+
+  <xacro:property name="NAME_LINK_HEAD_CAMERA" value="${NAME_HEAD_CAMERA_PREFIX}_link"/>
+  <xacro:property name="NAME_LINK_CHEST_CAMERA" value="${NAME_CHEST_CAMERA_PREFIX}_link"/>
+
+  <xacro:property name="NAME_LINK_ARM_R_1" value="r_link1"/>
+  <xacro:property name="NAME_LINK_ARM_R_2" value="r_link2"/>
+  <xacro:property name="NAME_LINK_ARM_R_3" value="r_link3"/>
+  <xacro:property name="NAME_LINK_ARM_R_4" value="r_link4"/>
+  <xacro:property name="NAME_LINK_ARM_R_5" value="r_link5"/>
+  <xacro:property name="NAME_LINK_ARM_R_6" value="r_link6"/>
+  <xacro:property name="NAME_LINK_ARM_R_7" value="r_link7"/>
+  <xacro:property name="NAME_LINK_GRIPPER_R_A" value="r_gripperA_link"/>
+  <xacro:property name="NAME_LINK_GRIPPER_R_B" value="r_gripperB_link"/>
+  <xacro:property name="NAME_LINK_ARMARKER_R" value="r_link5_armarker"/>
+
+  <xacro:property name="NAME_LINK_ARM_L_1" value="l_link1"/>
+  <xacro:property name="NAME_LINK_ARM_L_2" value="l_link2"/>
+  <xacro:property name="NAME_LINK_ARM_L_3" value="l_link3"/>
+  <xacro:property name="NAME_LINK_ARM_L_4" value="l_link4"/>
+  <xacro:property name="NAME_LINK_ARM_L_5" value="l_link5"/>
+  <xacro:property name="NAME_LINK_ARM_L_6" value="l_link6"/>
+  <xacro:property name="NAME_LINK_ARM_L_7" value="l_link7"/>
+  <xacro:property name="NAME_LINK_GRIPPER_L_A" value="l_gripperA_link"/>
+  <xacro:property name="NAME_LINK_GRIPPER_L_B" value="l_gripperB_link"/>
+  <xacro:property name="NAME_LINK_ARMARKER_L" value="l_link5_armarker"/>
+
+  <xacro:property name="NAME_JOINT_BASE" value="base_link_to_world_joint"/>
+  <xacro:property name="NAME_JOINT_BODY" value="waist_yaw_joint"/>
+
+  <xacro:property name="NAME_JOINT_NECK_1" value="neck_yaw_joint"/>
+  <xacro:property name="NAME_JOINT_NECK_2" value="neck_pitch_joint"/>
+
+  <xacro:property name="NAME_JOINT_HEAD_CAMERA" value="head_camera_joint"/>
+  <xacro:property name="NAME_JOINT_CHEST_CAMERA" value="chest_camera_joint"/>
+
+  <xacro:property name="NAME_JOINT_ARM_R_1" value="r_arm_joint1"/>
+  <xacro:property name="NAME_JOINT_ARM_R_2" value="r_arm_joint2"/>
+  <xacro:property name="NAME_JOINT_ARM_R_3" value="r_arm_joint3"/>
+  <xacro:property name="NAME_JOINT_ARM_R_4" value="r_arm_joint4"/>
+  <xacro:property name="NAME_JOINT_ARM_R_5" value="r_arm_joint5"/>
+  <xacro:property name="NAME_JOINT_ARM_R_6" value="r_arm_joint6"/>
+  <xacro:property name="NAME_JOINT_ARM_R_7" value="r_arm_joint7"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_R_A" value="r_gripper_joint"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_R_B" value="r_gripper_mimic_joint"/>
+  <xacro:property name="NAME_JOINT_ARMARKER_R" value="r_arm_armarker"/>
+
+  <xacro:property name="NAME_JOINT_ARM_L_1" value="l_arm_joint1"/>
+  <xacro:property name="NAME_JOINT_ARM_L_2" value="l_arm_joint2"/>
+  <xacro:property name="NAME_JOINT_ARM_L_3" value="l_arm_joint3"/>
+  <xacro:property name="NAME_JOINT_ARM_L_4" value="l_arm_joint4"/>
+  <xacro:property name="NAME_JOINT_ARM_L_5" value="l_arm_joint5"/>
+  <xacro:property name="NAME_JOINT_ARM_L_6" value="l_arm_joint6"/>
+  <xacro:property name="NAME_JOINT_ARM_L_7" value="l_arm_joint7"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_L_A" value="l_gripper_joint"/>
+  <xacro:property name="NAME_JOINT_GRIPPER_L_B" value="l_gripper_mimic_joint"/>
+  <xacro:property name="NAME_JOINT_ARMARKER_L" value="l_arm_armarker"/>
+
+  <xacro:property name="NAME_WORLD_LINK" value="world"/>
+
+  <xacro:property name="EFFORT_LIMIT" value="4.0"/>
+  <xacro:property name="VELOCITY_LIMIT" value="5.969211435"/>
+
+  <xacro:property name="JOINT_BODY_LOWER_LIMIT" value="${radians(-110)}"/>
+  <xacro:property name="JOINT_BODY_UPPER_LIMIT" value="${radians(110)}"/>
+
+  <xacro:property name="JOINT_NECK_1_LOWER_LIMIT" value="${radians(-165)}"/>
+  <xacro:property name="JOINT_NECK_1_UPPER_LIMIT" value="${radians(165)}"/>
+  <xacro:property name="JOINT_NECK_2_LOWER_LIMIT" value="${radians(-90)}"/>
+  <xacro:property name="JOINT_NECK_2_UPPER_LIMIT" value="${radians(55)}"/>
+
+  <xacro:property name="JOINT_ARM_R_1_LOWER_LIMIT" value="${radians(-90)}"/>
+  <xacro:property name="JOINT_ARM_R_1_UPPER_LIMIT" value="${radians(90)}"/>
+  <!-- 初期角度が範囲外だとプランニングで失敗するため範囲を広げる -->
+  <xacro:property name="JOINT_ARM_R_2_LOWER_LIMIT" value="${radians(-92)}"/>
+  <xacro:property name="JOINT_ARM_R_2_UPPER_LIMIT" value="${radians(0)}"/>
+  <xacro:property name="JOINT_ARM_R_3_LOWER_LIMIT" value="${radians(-90)}"/>
+  <xacro:property name="JOINT_ARM_R_3_UPPER_LIMIT" value="${radians(90)}"/>
+  <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
+  <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
+  <xacro:property name="JOINT_ARM_R_4_LOWER_LIMIT" value="${radians(-0.01)}"/>
+  <xacro:property name="JOINT_ARM_R_4_UPPER_LIMIT" value="${radians(157)}"/>
+  <xacro:property name="JOINT_ARM_R_5_LOWER_LIMIT" value="${radians(-90)}"/>
+  <xacro:property name="JOINT_ARM_R_5_UPPER_LIMIT" value="${radians(90)}"/>
+  <!-- 初期角度が範囲外だとプランニングで失敗するため範囲を広げる -->
+  <xacro:property name="JOINT_ARM_R_6_LOWER_LIMIT" value="${radians(-123)}"/>
+  <xacro:property name="JOINT_ARM_R_6_UPPER_LIMIT" value="${radians(60)}"/>
+  <xacro:property name="JOINT_ARM_R_7_LOWER_LIMIT" value="${radians(-170)}"/>
+  <xacro:property name="JOINT_ARM_R_7_UPPER_LIMIT" value="${radians(170)}"/>
+  <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
+  <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
+  <xacro:property name="JOINT_GRIPPER_R_LOWER_LIMIT" value="${radians(-0.05)}"/>
+  <xacro:property name="JOINT_GRIPPER_R_UPPER_LIMIT" value="${radians(86)}"/>
+
+  <xacro:property name="JOINT_ARM_L_1_LOWER_LIMIT" value="${radians(-90)}"/>
+  <xacro:property name="JOINT_ARM_L_1_UPPER_LIMIT" value="${radians(90)}"/>
+  <!-- 初期角度が範囲外だとプランニングで失敗するため範囲を広げる -->
+  <xacro:property name="JOINT_ARM_L_2_LOWER_LIMIT" value="${radians(0)}"/>
+  <xacro:property name="JOINT_ARM_L_2_UPPER_LIMIT" value="${radians(92)}"/>
+  <xacro:property name="JOINT_ARM_L_3_LOWER_LIMIT" value="${radians(-90)}"/>
+  <xacro:property name="JOINT_ARM_L_3_UPPER_LIMIT" value="${radians(90)}"/>
+  <xacro:property name="JOINT_ARM_L_4_LOWER_LIMIT" value="${radians(-157)}"/>
+  <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
+  <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
+  <xacro:property name="JOINT_ARM_L_4_UPPER_LIMIT" value="${radians(0.01)}"/>
+  <xacro:property name="JOINT_ARM_L_5_LOWER_LIMIT" value="${radians(-90)}"/>
+  <xacro:property name="JOINT_ARM_L_5_UPPER_LIMIT" value="${radians(90)}"/>
+  <xacro:property name="JOINT_ARM_L_6_LOWER_LIMIT" value="${radians(-60)}"/>
+  <!-- 初期角度が範囲外だとプランニングで失敗するため範囲を広げる -->
+  <xacro:property name="JOINT_ARM_L_6_UPPER_LIMIT" value="${radians(123)}"/>
+  <xacro:property name="JOINT_ARM_L_7_LOWER_LIMIT" value="${radians(-170)}"/>
+  <xacro:property name="JOINT_ARM_L_7_UPPER_LIMIT" value="${radians(170)}"/>
+  <xacro:property name="JOINT_GRIPPER_L_LOWER_LIMIT" value="${radians(-86)}"/>
+  <!-- Gazeboの挙動がlimit付近で不安定なため、limitをサーボの可動範囲より少し大きくする -->
+  <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
+  <xacro:property name="JOINT_GRIPPER_L_UPPER_LIMIT" value="${radians(0.05)}"/>
+
+</robot>

@@ -7,7 +7,10 @@
     <joint name="${NAME_JOINT_NECK_1}" type="revolute">
       <parent link="${NAME_LINK_BODY}" />
       <child link="${NAME_LINK_NECK_1}" />
+      <!--
       <origin xyz="0.08083 0.0 0.3395" rpy="0 0 0"/>
+      -->
+      <origin xyz="0.08083 0.0 0.2595" rpy="0 0 0"/>
       <limit 
         lower="${JOINT_NECK_1_LOWER_LIMIT}" 
         upper="${JOINT_NECK_1_UPPER_LIMIT}" 

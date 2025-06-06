@@ -64,7 +64,7 @@
     See https://github.com/ros-controls/gazebo_ros2_control/issues/173
     -->
     <joint name="${NAME_JOINT_GRIPPER_R_B}_mimic" type="fixed">
-      <parent link="world" />
+      <parent link="${NAME_WORLD_LINK}" />
       <child link="dummy_mimic_fix_r" />
     </joint>
     <link name="dummy_mimic_fix_r"/>
