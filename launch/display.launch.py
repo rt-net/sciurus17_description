@@ -9,26 +9,33 @@ from sciurus17_description.robot_description_loader import RobotDescriptionLoade
 def generate_launch_description():
     description_loader = RobotDescriptionLoader()
 
-    rsp = Node(package='robot_state_publisher',
-               executable='robot_state_publisher',
-               output='both',
-               parameters=[{'robot_description': description_loader.load()}])
+    rsp = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='both',
+        parameters=[{'robot_description': description_loader.load()}],
+    )
     jsp = Node(
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
-        output='screen')
+        output='screen',
+    )
 
-    rviz_config_file = get_package_share_directory(
-        'sciurus17_description') + '/launch/display.rviz'
-    rviz = Node(package='rviz2',
-                executable='rviz2',
-                name='rviz2',
-                output='log',
-                arguments=['-d', rviz_config_file])
+    rviz_config_file = (
+        get_package_share_directory('sciurus17_description') + '/launch/display.rviz'
+    )
+    rviz = Node(
+        name='rviz2',
+        package='rviz2',
+        executable='rviz2',
+        output='log',
+        arguments=['-d', rviz_config_file],
+    )
 
-    ld = LaunchDescription()
-    ld.add_action(rsp)
-    ld.add_action(jsp)
-    ld.add_action(rviz)
-
-    return ld
+    return LaunchDescription(
+        [
+            rsp,
+            jsp,
+            rviz,
+        ]
+    )
