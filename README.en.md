@@ -8,6 +8,7 @@ ROS 2 package with URDF description macro for [Sciurus17](https://rt-net.jp/prod
 
 > [!NOTE]
 > This ROS package was separated from [rt-net/sciurus17_ros](https://github.com/rt-net/sciurus17_ros).
+> 
 > See [rt-net/sciurus17_ros#134](https://github.com/rt-net/sciurus17_ros/issues/134) for details.
 
 ## Table of Contents

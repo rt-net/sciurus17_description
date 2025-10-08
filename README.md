@@ -7,7 +7,8 @@
 [Sciurus17](https://rt-net.jp/products/sciurus17/)のURDFファイルを含むROS 2パッケージです。
 
 > [!NOTE]
-> このROSパッケージは[rt-net/sciurus17_ros](https://github.com/rt-net/sciurus17_ros)から分離しました。
+> 本ROSパッケージは[rt-net/sciurus17_ros](https://github.com/rt-net/sciurus17_ros)から分離したものです。
+> 
 > 詳細は[rt-net/sciurus17_ros#134](https://github.com/rt-net/sciurus17_ros/issues/134)を参照してください。
 
 ## Table of Contents
@@ -64,7 +65,7 @@ ros2 launch sciurus17_description display.launch.py
 ## Proprietary Rights
 
 Sciurus17は、アールティが開発した研究用上半身ロボットです。
-このリポジトリのデータ等に関するライセンスについては、[LICENSE](./LICENSE)ファイルをご参照ください。
+本リポジトリのデータ等に関するライセンスについては、[LICENSE](./LICENSE)ファイルをご参照ください。
 企業による使用については、自社内において研究開発をする目的に限り、本データの使用を許諾します。
 本データを使って自作されたい方は、義務ではありませんが弊社ロボットショップで部品をお買い求めいただければ、励みになります。
 商業目的をもって本データを使用する場合は、商業用使用許諾の条件等について弊社までお問合せください。
