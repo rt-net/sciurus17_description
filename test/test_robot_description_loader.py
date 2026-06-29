@@ -52,13 +52,31 @@ def test_manipulator_config_file_path():
     assert '"manipulator_config_file_path">test/config/file/path' in exec_load(rdl)
 
 
-def test_use_gazebo():
+def test_use_gazebo_ros2_control():
     # use_gazeboが変更され、xacroにgz_ros2_controlがセットされることを期待
     rdl = RobotDescriptionLoader()
     rdl.use_gazebo = 'true'
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
     assert 'gz_ros2_control/GazeboSimSystem' in exec_load(rdl)
+
+
+def test_use_gazebo_true_world_link():
+    # use_gazeboが変更され、xacroにworldリンクがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_gazebo = 'true'
+    rdl.gz_control_config_package = 'sciurus17_description'
+    rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
+    assert 'gz_ros2_control/GazeboSimSystem' in exec_load(rdl)
+    assert 'link name="world"' in exec_load(rdl)
+
+
+def test_use_gazebo_false_world_link():
+    # use_gazebo=falseではworldリンクがセットされないことを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_gazebo = 'false'
+    xml = exec_load(rdl)
+    assert 'link name="world"' not in xml
 
 
 def test_use_gazebo_head_camera():

@@ -173,13 +173,15 @@
   <xacro:property name="COLOR_LINK_ARM" value="white"/>
   <xacro:property name="COLOR_LINK_GRIPPER" value="red"/>
 
-  <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
-  <link name="world"/>
+  <xacro:if value="$(arg use_gazebo)">
+    <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
+    <link name="world"/>
 
-  <joint name="${NAME_JOINT_BASE}" type="fixed">
-    <parent link="world"/>
-    <child link="${NAME_LINK_BASE}"/>
-  </joint>
+    <joint name="${NAME_JOINT_BASE}" type="fixed">
+      <parent link="world"/>
+      <child link="${NAME_LINK_BASE}"/>
+    </joint>
+  </xacro:if>
 
   <xacro:sciurus17_body/>
 
