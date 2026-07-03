@@ -48,68 +48,6 @@
     <color rgba="0.8984375 0.0 0.0703125 1"/>
   </material>
 
-  <xacro:property name="NAME_LINK_BASE" value="base_link"/>
-  <xacro:property name="NAME_LINK_BODY" value="body_link"/>
-
-  <xacro:property name="NAME_LINK_NECK_1" value="neck_yaw_link"/>
-  <xacro:property name="NAME_LINK_NECK_2" value="neck_pitch_link"/>
-
-  <xacro:property name="NAME_LINK_HEAD_CAMERA" value="${NAME_HEAD_CAMERA_PREFIX}_link"/>
-  <xacro:property name="NAME_LINK_CHEST_CAMERA" value="${NAME_CHEST_CAMERA_PREFIX}_link"/>
-
-  <xacro:property name="NAME_LINK_ARM_R_1" value="r_link1"/>
-  <xacro:property name="NAME_LINK_ARM_R_2" value="r_link2"/>
-  <xacro:property name="NAME_LINK_ARM_R_3" value="r_link3"/>
-  <xacro:property name="NAME_LINK_ARM_R_4" value="r_link4"/>
-  <xacro:property name="NAME_LINK_ARM_R_5" value="r_link5"/>
-  <xacro:property name="NAME_LINK_ARM_R_6" value="r_link6"/>
-  <xacro:property name="NAME_LINK_ARM_R_7" value="r_link7"/>
-  <xacro:property name="NAME_LINK_GRIPPER_R_A" value="r_gripperA_link"/>
-  <xacro:property name="NAME_LINK_GRIPPER_R_B" value="r_gripperB_link"/>
-  <xacro:property name="NAME_LINK_ARMARKER_R" value="r_link5_armarker"/>
-
-  <xacro:property name="NAME_LINK_ARM_L_1" value="l_link1"/>
-  <xacro:property name="NAME_LINK_ARM_L_2" value="l_link2"/>
-  <xacro:property name="NAME_LINK_ARM_L_3" value="l_link3"/>
-  <xacro:property name="NAME_LINK_ARM_L_4" value="l_link4"/>
-  <xacro:property name="NAME_LINK_ARM_L_5" value="l_link5"/>
-  <xacro:property name="NAME_LINK_ARM_L_6" value="l_link6"/>
-  <xacro:property name="NAME_LINK_ARM_L_7" value="l_link7"/>
-  <xacro:property name="NAME_LINK_GRIPPER_L_A" value="l_gripperA_link"/>
-  <xacro:property name="NAME_LINK_GRIPPER_L_B" value="l_gripperB_link"/>
-  <xacro:property name="NAME_LINK_ARMARKER_L" value="l_link5_armarker"/>
-
-  <xacro:property name="NAME_JOINT_BASE" value="base_link_to_world_joint"/>
-  <xacro:property name="NAME_JOINT_BODY" value="waist_yaw_joint"/>
-
-  <xacro:property name="NAME_JOINT_NECK_1" value="neck_yaw_joint"/>
-  <xacro:property name="NAME_JOINT_NECK_2" value="neck_pitch_joint"/>
-
-  <xacro:property name="NAME_JOINT_HEAD_CAMERA" value="head_camera_joint"/>
-  <xacro:property name="NAME_JOINT_CHEST_CAMERA" value="chest_camera_joint"/>
-
-  <xacro:property name="NAME_JOINT_ARM_R_1" value="r_arm_joint1"/>
-  <xacro:property name="NAME_JOINT_ARM_R_2" value="r_arm_joint2"/>
-  <xacro:property name="NAME_JOINT_ARM_R_3" value="r_arm_joint3"/>
-  <xacro:property name="NAME_JOINT_ARM_R_4" value="r_arm_joint4"/>
-  <xacro:property name="NAME_JOINT_ARM_R_5" value="r_arm_joint5"/>
-  <xacro:property name="NAME_JOINT_ARM_R_6" value="r_arm_joint6"/>
-  <xacro:property name="NAME_JOINT_ARM_R_7" value="r_arm_joint7"/>
-  <xacro:property name="NAME_JOINT_GRIPPER_R_A" value="r_gripper_joint"/>
-  <xacro:property name="NAME_JOINT_GRIPPER_R_B" value="r_gripper_mimic_joint"/>
-  <xacro:property name="NAME_JOINT_ARMARKER_R" value="r_arm_armarker"/>
-
-  <xacro:property name="NAME_JOINT_ARM_L_1" value="l_arm_joint1"/>
-  <xacro:property name="NAME_JOINT_ARM_L_2" value="l_arm_joint2"/>
-  <xacro:property name="NAME_JOINT_ARM_L_3" value="l_arm_joint3"/>
-  <xacro:property name="NAME_JOINT_ARM_L_4" value="l_arm_joint4"/>
-  <xacro:property name="NAME_JOINT_ARM_L_5" value="l_arm_joint5"/>
-  <xacro:property name="NAME_JOINT_ARM_L_6" value="l_arm_joint6"/>
-  <xacro:property name="NAME_JOINT_ARM_L_7" value="l_arm_joint7"/>
-  <xacro:property name="NAME_JOINT_GRIPPER_L_A" value="l_gripper_joint"/>
-  <xacro:property name="NAME_JOINT_GRIPPER_L_B" value="l_gripper_mimic_joint"/>
-  <xacro:property name="NAME_JOINT_ARMARKER_L" value="l_arm_armarker"/>
-
   <xacro:property name="EFFORT_LIMIT" value="4.0"/>
   <xacro:property name="VELOCITY_LIMIT" value="5.969211435"/>
 
@@ -176,9 +114,9 @@
   <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
   <link name="world"/>
 
-  <joint name="${NAME_JOINT_BASE}" type="fixed">
+  <joint name="base_link_to_world_joint" type="fixed">
     <parent link="world"/>
-    <child link="${NAME_LINK_BASE}"/>
+    <child link="base_link"/>
   </joint>
 
   <xacro:sciurus17_body/>
@@ -207,7 +145,7 @@
 
     <joint name="${NAME_HEAD_CAMERA_PREFIX}_color_joint" type="fixed">
       <origin xyz="0 0.015 0" rpy="0 0 0" />
-      <parent link="${NAME_LINK_HEAD_CAMERA}" />
+      <parent link="head_camera_link" />
       <child link="${NAME_HEAD_CAMERA_PREFIX}_color_frame" />
     </joint>
 
