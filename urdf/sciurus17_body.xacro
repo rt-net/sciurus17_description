@@ -9,7 +9,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Base.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_BASE}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -42,7 +42,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Body.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_BODY}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>

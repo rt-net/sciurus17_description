@@ -10,7 +10,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_Link7.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_GRIPPER}"/>
+        <material name="red"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -45,7 +45,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_GripperA.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_GRIPPER}"/>
+        <material name="red"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -81,7 +81,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_GripperB.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_GRIPPER}"/>
+        <material name="red"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>

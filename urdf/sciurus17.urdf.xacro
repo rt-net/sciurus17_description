@@ -105,11 +105,6 @@
   <!-- 参照: https://github.com/rt-net/sciurus17_description/pull/6 -->
   <xacro:property name="JOINT_GRIPPER_L_UPPER_LIMIT" value="${radians(0.05)}"/>
 
-  <xacro:property name="COLOR_LINK_BASE" value="white"/>
-  <xacro:property name="COLOR_LINK_BODY" value="white"/>
-  <xacro:property name="COLOR_LINK_HEAD" value="white"/>
-  <xacro:property name="COLOR_LINK_ARM" value="white"/>
-  <xacro:property name="COLOR_LINK_GRIPPER" value="red"/>
 
   <!-- Used for fixing robot 'base_link'  to Gazebo 'world' -->
   <link name="world"/>

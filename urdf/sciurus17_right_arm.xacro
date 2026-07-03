@@ -23,7 +23,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_Link1.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_ARM}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -57,7 +57,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_Link2.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_ARM}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="0 1.5708 0" xyz="0.0 0.0 0.0"/>
@@ -91,7 +91,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/L_Link3.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_ARM}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -125,7 +125,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_Link4.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_ARM}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -159,7 +159,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_Link5.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_ARM}"/>
+        <material name="white"/>
       </visual>
       <visual>
         <origin xyz="0.032 -0.074 0.0345" rpy="0 0 -2.0944"/>
@@ -204,7 +204,7 @@
         <geometry>
           <cylinder length="0.001" radius="0.001"/>
         </geometry>
-        <material name="${COLOR_LINK_ARM}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -233,7 +233,7 @@
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/R_Link6.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_ARM}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
