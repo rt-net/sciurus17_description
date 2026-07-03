@@ -29,10 +29,14 @@
     </visual>
   </xacro:macro>
 
-  <xacro:macro name="gazebo_robot_settings">
+  <xacro:macro name="gazebo_robot_settings"
+               params="use_gazebo_head_camera:=false
+               use_gazebo_chest_camera:=false
+               gz_control_config_package:=''
+               gz_control_config_file_path:=''">
     <gazebo>
       <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-        <parameters>$(find ${GZ_CONTROL_CONFIG_PACKAGE})/${GZ_CONTROL_CONFIG_FILE_PATH}</parameters>
+        <parameters>$(find ${gz_control_config_package})/${gz_control_config_file_path}</parameters>
       </plugin>
     </gazebo>
 
@@ -58,7 +62,7 @@
       </plugin>
     </gazebo>
 
-    <xacro:if value="${USE_GAZEBO_HEAD_CAMERA}">
+    <xacro:if value="${use_gazebo_head_camera}">
       <gazebo reference="${NAME_HEAD_CAMERA_PREFIX}_color_frame">
         <sensor name="sim_realsense_d415" type="rgbd_camera">
           <update_rate>10</update_rate>
@@ -108,7 +112,7 @@
       </gazebo>
     </xacro:if>
 
-    <xacro:if value="${USE_GAZEBO_CHEST_CAMERA}">
+    <xacro:if value="${use_gazebo_chest_camera}">
       <gazebo reference="chest_camera_link">
         <sensor name="${NAME_CHEST_CAMERA_PREFIX}" type="camera">
           <pose relative_to="chest_camera_link">0 0 0 ${radians(90)} ${radians(-90)} 0</pose>
