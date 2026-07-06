@@ -63,12 +63,12 @@
     </gazebo>
 
     <xacro:if value="${use_gazebo_head_camera}">
-      <gazebo reference="${NAME_HEAD_CAMERA_PREFIX}_color_frame">
+      <gazebo reference="head_camera_color_frame">
         <sensor name="sim_realsense_d415" type="rgbd_camera">
           <update_rate>10</update_rate>
           <always_on>true</always_on>
-          <topic>${NAME_HEAD_CAMERA_PREFIX}</topic>
-          <frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</frame_id>
+          <topic>head_camera</topic>
+          <frame_id>head_camera_color_frame</frame_id>
           <camera name="realsense_d415">
             <xacro:property name="head_camera_width" value="640"/>
             <xacro:property name="head_camera_height" value="360"/>
@@ -89,7 +89,7 @@
                 <far>3.0</far>
               </clip>
             </depth_camera>
-            <optical_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame</optical_frame_id>
+            <optical_frame_id>head_camera_color_optical_frame</optical_frame_id>
             <lens>
               <intrinsics>
                 <fx>${head_camera_focal_length}</fx>
@@ -114,13 +114,13 @@
 
     <xacro:if value="${use_gazebo_chest_camera}">
       <gazebo reference="chest_camera_link">
-        <sensor name="${NAME_CHEST_CAMERA_PREFIX}" type="camera">
+        <sensor name="chest_camera" type="camera">
           <pose relative_to="chest_camera_link">0 0 0 ${radians(90)} ${radians(-90)} 0</pose>
           <update_rate>10</update_rate>
           <always_on>true</always_on>
-          <topic>${NAME_CHEST_CAMERA_PREFIX}/image_raw</topic>
+          <topic>chest_camera/image_raw</topic>
           <frame_id>chest_camera_link</frame_id>
-          <camera name="${NAME_CHEST_CAMERA_PREFIX}">
+          <camera name="chest_camera">
             <xacro:property name="chest_camera_width" value="640"/>
             <xacro:property name="chest_camera_height" value="360"/>
             <xacro:property name="chest_camera_hfov" value="${radians(120)}"/>

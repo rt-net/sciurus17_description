@@ -28,9 +28,6 @@
   <xacro:arg name="gz_control_config_package" default="" />
   <xacro:arg name="gz_control_config_file_path" default="" />
 
-  <xacro:property name="NAME_HEAD_CAMERA_PREFIX" value="head_camera"/>
-  <xacro:property name="NAME_CHEST_CAMERA_PREFIX" value="chest_camera"/>
-
   <material name="white">
     <color rgba="0.9 0.9 0.9 1.0"/>
   </material>
@@ -138,21 +135,21 @@
 
     <xacro:sciurus17_gazebo_ros2_control_settings/>
 
-    <joint name="${NAME_HEAD_CAMERA_PREFIX}_color_joint" type="fixed">
+    <joint name="head_camera_color_joint" type="fixed">
       <origin xyz="0 0.015 0" rpy="0 0 0" />
       <parent link="head_camera_link" />
-      <child link="${NAME_HEAD_CAMERA_PREFIX}_color_frame" />
+      <child link="head_camera_color_frame" />
     </joint>
 
-    <link name="${NAME_HEAD_CAMERA_PREFIX}_color_frame"/>
+    <link name="head_camera_color_frame"/>
 
-    <joint name="${NAME_HEAD_CAMERA_PREFIX}_color_optical_joint" type="fixed">
+    <joint name="head_camera_color_optical_joint" type="fixed">
       <origin xyz="0 0 0" rpy="${radians(-90)} 0 ${radians(-90)}" />
-      <parent link="${NAME_HEAD_CAMERA_PREFIX}_color_frame" />
-      <child link="${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame" />
+      <parent link="head_camera_color_frame" />
+      <child link="head_camera_color_optical_frame" />
     </joint>
 
-    <link name="${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame"/>
+    <link name="head_camera_color_optical_frame"/>
 
   </xacro:if>
 </robot>
