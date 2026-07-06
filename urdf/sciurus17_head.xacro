@@ -4,9 +4,9 @@
 
   <xacro:macro name="sciurus17_head">
 
-    <joint name="${NAME_JOINT_NECK_1}" type="revolute">
-      <parent link="${NAME_LINK_BODY}" />
-      <child link="${NAME_LINK_NECK_1}" />
+    <joint name="neck_yaw_joint" type="revolute">
+      <parent link="body_link" />
+      <child link="neck_yaw_link" />
       <origin xyz="0.08083 0.0 0.3395" rpy="0 0 0"/>
       <limit 
         lower="${JOINT_NECK_1_LOWER_LIMIT}" 
@@ -17,12 +17,12 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="${NAME_LINK_NECK_1}">
+    <link name="neck_yaw_link">
       <visual>
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Neck1.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_HEAD}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <geometry>
@@ -36,9 +36,9 @@
       </inertial>
     </link>
 
-    <joint name="${NAME_JOINT_NECK_2}" type="revolute">
-      <parent link="${NAME_LINK_NECK_1}" />
-      <child link="${NAME_LINK_NECK_2}" />
+    <joint name="neck_pitch_joint" type="revolute">
+      <parent link="neck_yaw_link" />
+      <child link="neck_pitch_link" />
       <origin xyz="0.0 0.0 0.054" rpy="0 0 0"/>
       <limit 
         lower="${JOINT_NECK_2_LOWER_LIMIT}" 
@@ -49,13 +49,13 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="${NAME_LINK_NECK_2}">
+    <link name="neck_pitch_link">
       <visual>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/Neck2.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_HEAD}"/>
+        <material name="white"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -70,13 +70,13 @@
       </inertial>
     </link>
 
-    <joint name="${NAME_JOINT_HEAD_CAMERA}" type="fixed">
-      <parent link="${NAME_LINK_NECK_2}" />
-      <child link="${NAME_LINK_HEAD_CAMERA}" />
+    <joint name="head_camera_joint" type="fixed">
+      <parent link="neck_pitch_link" />
+      <child link="head_camera_link" />
       <origin xyz="0.081785 0.020 0.091" rpy="0 0 0"/>
     </joint>
 
-    <link name="${NAME_LINK_HEAD_CAMERA}"/>
+    <link name="head_camera_link"/>
 
   </xacro:macro>
 

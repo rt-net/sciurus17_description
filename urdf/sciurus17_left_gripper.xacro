@@ -4,13 +4,13 @@
 
   <xacro:macro name="sciurus17_left_gripper">
 
-    <link name="${NAME_LINK_ARM_L_7}">
+    <link name="l_link7">
       <visual>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/L_Link7.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_GRIPPER}"/>
+        <material name="red"/>
       </visual>
       <collision>
         <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0"/>
@@ -25,9 +25,9 @@
       </inertial>
     </link>
 
-    <joint name="${NAME_JOINT_GRIPPER_L_A}" type="revolute">
-      <parent link="${NAME_LINK_ARM_L_7}" />
-      <child link="${NAME_LINK_GRIPPER_L_A}" />
+    <joint name="l_gripper_joint" type="revolute">
+      <parent link="l_link7" />
+      <child link="l_gripperA_link" />
       <origin xyz="0.012 0.024 0.0" rpy="0 0 0"/>
       <limit 
         lower="${JOINT_GRIPPER_L_LOWER_LIMIT}" 
@@ -38,13 +38,13 @@
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="${NAME_LINK_GRIPPER_L_A}">
+    <link name="l_gripperA_link">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/L_GripperA.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_GRIPPER}"/>
+        <material name="red"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
@@ -59,9 +59,9 @@
       </inertial>
     </link>
 
-    <joint name="${NAME_JOINT_GRIPPER_L_B}" type="revolute">
-      <parent link="${NAME_LINK_ARM_L_7}" />
-      <child link="${NAME_LINK_GRIPPER_L_B}" />
+    <joint name="l_gripper_mimic_joint" type="revolute">
+      <parent link="l_link7" />
+      <child link="l_gripperB_link" />
       <origin xyz="-0.012 0.024 0.0" rpy="0 0 0"/>
       <limit 
         lower="${JOINT_GRIPPER_L_LOWER_LIMIT}" 
@@ -69,17 +69,17 @@
         effort="${EFFORT_LIMIT}" 
         velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 -1"/>
-      <mimic joint="${NAME_JOINT_GRIPPER_L_A}" multiplier="1" offset="0"/>
+      <mimic joint="l_gripper_joint" multiplier="1" offset="0"/>
       <dynamics damping="1.0e-6" friction="0.8"/>
     </joint>
 
-    <link name="${NAME_LINK_GRIPPER_L_B}">
+    <link name="l_gripperB_link">
       <visual>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
         <geometry>
           <mesh filename="package://sciurus17_description/meshes/visual/L_GripperB.stl" scale="1.0 1.0 1.0"/>
         </geometry>
-        <material name="${COLOR_LINK_GRIPPER}"/>
+        <material name="red"/>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>

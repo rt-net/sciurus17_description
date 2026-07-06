@@ -29,26 +29,30 @@
     </visual>
   </xacro:macro>
 
-  <xacro:macro name="gazebo_robot_settings">
+  <xacro:macro name="gazebo_robot_settings"
+               params="use_gazebo_head_camera:=false
+               use_gazebo_chest_camera:=false
+               gz_control_config_package:=''
+               gz_control_config_file_path:=''">
     <gazebo>
       <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-        <parameters>$(find ${GZ_CONTROL_CONFIG_PACKAGE})/${GZ_CONTROL_CONFIG_FILE_PATH}</parameters>
+        <parameters>$(find ${gz_control_config_package})/${gz_control_config_file_path}</parameters>
       </plugin>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_BASE}">
+    <gazebo reference="base_link">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_BODY}">
+    <gazebo reference="body_link">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_NECK_1}">
+    <gazebo reference="neck_yaw_link">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_NECK_2}">
+    <gazebo reference="neck_pitch_link">
       <xacro:material_gazebo_white/>
     </gazebo>
 
@@ -58,13 +62,13 @@
       </plugin>
     </gazebo>
 
-    <xacro:if value="${USE_GAZEBO_HEAD_CAMERA}">
-      <gazebo reference="${NAME_HEAD_CAMERA_PREFIX}_color_frame">
+    <xacro:if value="${use_gazebo_head_camera}">
+      <gazebo reference="head_camera_color_frame">
         <sensor name="sim_realsense_d415" type="rgbd_camera">
           <update_rate>10</update_rate>
           <always_on>true</always_on>
-          <topic>${NAME_HEAD_CAMERA_PREFIX}</topic>
-          <frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_frame</frame_id>
+          <topic>head_camera</topic>
+          <frame_id>head_camera_color_frame</frame_id>
           <camera name="realsense_d415">
             <xacro:property name="head_camera_width" value="640"/>
             <xacro:property name="head_camera_height" value="360"/>
@@ -85,7 +89,7 @@
                 <far>3.0</far>
               </clip>
             </depth_camera>
-            <optical_frame_id>${NAME_HEAD_CAMERA_PREFIX}_color_optical_frame</optical_frame_id>
+            <optical_frame_id>head_camera_color_optical_frame</optical_frame_id>
             <lens>
               <intrinsics>
                 <fx>${head_camera_focal_length}</fx>
@@ -108,15 +112,15 @@
       </gazebo>
     </xacro:if>
 
-    <xacro:if value="${USE_GAZEBO_CHEST_CAMERA}">
-      <gazebo reference="${NAME_LINK_CHEST_CAMERA}">
-        <sensor name="${NAME_CHEST_CAMERA_PREFIX}" type="camera">
-          <pose relative_to="${NAME_LINK_CHEST_CAMERA}">0 0 0 ${radians(90)} ${radians(-90)} 0</pose>
+    <xacro:if value="${use_gazebo_chest_camera}">
+      <gazebo reference="chest_camera_link">
+        <sensor name="chest_camera" type="camera">
+          <pose relative_to="chest_camera_link">0 0 0 ${radians(90)} ${radians(-90)} 0</pose>
           <update_rate>10</update_rate>
           <always_on>true</always_on>
-          <topic>${NAME_CHEST_CAMERA_PREFIX}/image_raw</topic>
-          <frame_id>${NAME_LINK_CHEST_CAMERA}</frame_id>
-          <camera name="${NAME_CHEST_CAMERA_PREFIX}">
+          <topic>chest_camera/image_raw</topic>
+          <frame_id>chest_camera_link</frame_id>
+          <camera name="chest_camera">
             <xacro:property name="chest_camera_width" value="640"/>
             <xacro:property name="chest_camera_height" value="360"/>
             <xacro:property name="chest_camera_hfov" value="${radians(120)}"/>
@@ -152,81 +156,81 @@
       </gazebo>
     </xacro:if>
 
-    <gazebo reference="${NAME_LINK_ARM_R_1}">
+    <gazebo reference="r_link1">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_R_2}">
+    <gazebo reference="r_link2">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_R_3}">
+    <gazebo reference="r_link3">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_R_4}">
+    <gazebo reference="r_link4">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_R_5}">
+    <gazebo reference="r_link5">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_R_6}">
+    <gazebo reference="r_link6">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_R_7}">
+    <gazebo reference="r_link7">
       <xacro:material_gazebo_red/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_GRIPPER_R_A}">
+    <gazebo reference="r_gripperA_link">
       <mu1>0.8</mu1>
       <mu2>0.8</mu2>
       <xacro:material_gazebo_red/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_GRIPPER_R_B}">
+    <gazebo reference="r_gripperB_link">
       <mu1>0.8</mu1>
       <mu2>0.8</mu2>
       <xacro:material_gazebo_red/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_L_1}">
+    <gazebo reference="l_link1">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_L_2}">
+    <gazebo reference="l_link2">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_L_3}">
+    <gazebo reference="l_link3">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_L_4}">
+    <gazebo reference="l_link4">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_L_5}">
+    <gazebo reference="l_link5">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_L_6}">
+    <gazebo reference="l_link6">
       <xacro:material_gazebo_white/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_ARM_L_7}">
+    <gazebo reference="l_link7">
       <xacro:material_gazebo_red/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_GRIPPER_L_A}">
+    <gazebo reference="l_gripperA_link">
       <mu1>0.8</mu1>
       <mu2>0.8</mu2>
       <xacro:material_gazebo_red/>
     </gazebo>
 
-    <gazebo reference="${NAME_LINK_GRIPPER_L_B}">
+    <gazebo reference="l_gripperB_link">
       <mu1>0.8</mu1>
       <mu2>0.8</mu2>
       <xacro:material_gazebo_red/>
