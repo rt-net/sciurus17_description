@@ -21,6 +21,7 @@
   <xacro:arg name="use_gazebo_head_camera" default="false" />
   <xacro:arg name="use_gazebo_chest_camera" default="false" />
   <xacro:arg name="use_mock_components" default="false" />
+  <xacro:arg name="use_isaacsim" default="false" />
   <xacro:arg name="port_name" default="/dev/sciurus17spine" />
   <xacro:arg name="baudrate" default="3000000" />
   <xacro:arg name="timeout_seconds" default="1.0" />
@@ -118,6 +119,7 @@
 
     <xacro:sciurus17_ros2_control_settings
       use_mock_components="$(arg use_mock_components)"
+      use_isaacsim="$(arg use_isaacsim)"
       port_name="$(arg port_name)"
       baudrate="$(arg baudrate)"
       timeout_seconds="$(arg timeout_seconds)"

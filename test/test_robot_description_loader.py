@@ -88,3 +88,13 @@ def test_use_mock_components():
     rdl.gz_control_config_package = 'sciurus17_description'
     rdl.gz_control_config_file_path = 'config/dummy_controllers.yaml'
     assert 'mock_components/GenericSystem' in exec_load(rdl)
+
+
+def test_use_isaacsim():
+    # use_isaacsimが変更され、xacroにIsaac Sim向けのpluginがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_isaacsim = 'true'
+    description = exec_load(rdl)
+    assert 'topic_based_ros2_control/TopicBasedSystem' in description
+    assert '/joint_command' in description
+    assert '/joint_states' in description
