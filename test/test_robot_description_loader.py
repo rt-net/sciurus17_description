@@ -81,6 +81,13 @@ def test_use_gazebo_chest_camera():
     assert 'reference="chest_camera_link"' in exec_load(rdl)
 
 
+def test_use_isaacsim_head_camera():
+    # use_isaacsimが変更され、xacroにhead_camera_linkがセットされることを期待
+    rdl = RobotDescriptionLoader()
+    rdl.use_isaacsim = 'true'
+    assert 'head_camera_color_frame' in exec_load(rdl)
+
+
 def test_use_mock_components():
     # use_mock_componentsが変更され、xacroにmock_componentsがセットされることを期待
     rdl = RobotDescriptionLoader()

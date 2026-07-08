@@ -137,6 +137,10 @@
 
     <xacro:sciurus17_gazebo_ros2_control_settings/>
 
+  </xacro:if>
+
+  <xacro:if value="${'$(arg use_gazebo)' == 'true' or '$(arg use_isaacsim)' == 'true'}">
+
     <joint name="head_camera_color_joint" type="fixed">
       <origin xyz="0 0.015 0" rpy="0 0 0" />
       <parent link="head_camera_link" />
@@ -154,4 +158,5 @@
     <link name="head_camera_color_optical_frame"/>
 
   </xacro:if>
+
 </robot>
