@@ -98,7 +98,7 @@ def test_use_isaacsim():
 
 
 def test_use_isaacsim_head_camera():
-    # use_isaacsimが変更され、xacroにhead_camera_linkがセットされることを期待
+    # use_isaacsimが変更され、xacroにhead_camera_color_frameがセットされることを期待
     rdl = RobotDescriptionLoader()
     rdl.use_isaacsim = 'true'
-    assert 'head_camera_color_frame' in exec_load(rdl)
+    assert 'name="head_camera_color_frame"' in exec_load(rdl)
