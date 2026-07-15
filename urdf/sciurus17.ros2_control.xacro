@@ -3,6 +3,7 @@
 
   <xacro:macro name="sciurus17_ros2_control_settings"
                params="use_mock_components:=false
+                       use_isaacsim:=false
                        port_name:=/dev/sciurus17spine
                        baudrate:=3000000
                        timeout_seconds:=1.0
@@ -10,15 +11,22 @@
 
     <ros2_control name="sciurus17" type="system">
       <hardware>
-        <xacro:if value="${use_mock_components}">
-          <plugin>mock_components/GenericSystem</plugin>
+        <xacro:if value="${use_isaacsim}">
+          <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
+          <param name="joint_commands_topic">/joint_command</param>
+          <param name="joint_states_topic">/joint_states</param>
         </xacro:if>
-        <xacro:unless value="${use_mock_components}">
-          <plugin>sciurus17_hardware/Sciurus17Hardware</plugin>
-          <param name="port_name">${port_name}</param>
-          <param name="baudrate">${baudrate}</param>
-          <param name="timeout_seconds">${timeout_seconds}</param>
-          <param name="manipulator_config_file_path">${manipulator_config_file_path}</param>
+        <xacro:unless value="${use_isaacsim}">
+          <xacro:if value="${use_mock_components}">
+            <plugin>mock_components/GenericSystem</plugin>
+          </xacro:if>
+          <xacro:unless value="${use_mock_components}">
+            <plugin>sciurus17_hardware/Sciurus17Hardware</plugin>
+            <param name="port_name">${port_name}</param>
+            <param name="baudrate">${baudrate}</param>
+            <param name="timeout_seconds">${timeout_seconds}</param>
+            <param name="manipulator_config_file_path">${manipulator_config_file_path}</param>
+          </xacro:unless>
         </xacro:unless>
       </hardware>
 
