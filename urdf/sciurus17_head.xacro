@@ -14,7 +14,7 @@
         effort="${EFFORT_LIMIT}" 
         velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 0 1"/>
-      <dynamics damping="1.0e-6" friction="0.8"/>
+      <dynamics damping="1.0e-6" friction="0.01"/>
     </joint>
 
     <link name="neck_yaw_link">
@@ -46,7 +46,7 @@
         effort="${EFFORT_LIMIT}" 
         velocity="${VELOCITY_LIMIT}"/>
       <axis xyz="0 -1 0"/>
-      <dynamics damping="1.0e-6" friction="0.8"/>
+      <dynamics damping="1.0e-6" friction="0.01"/>
     </joint>
 
     <link name="neck_pitch_link">
