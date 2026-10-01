@@ -12,9 +12,7 @@
     <ros2_control name="sciurus17" type="system">
       <hardware>
         <xacro:if value="${use_isaacsim}">
-          <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
-          <param name="joint_commands_topic">/joint_command</param>
-          <param name="joint_states_topic">/joint_states</param>
+          <!-- 追記箇所 -->
         </xacro:if>
         <xacro:unless value="${use_isaacsim}">
           <xacro:if value="${use_mock_components}">

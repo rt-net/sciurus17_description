@@ -140,23 +140,7 @@
   </xacro:if>
 
   <xacro:if value="${'$(arg use_gazebo)' == 'true' or '$(arg use_isaacsim)' == 'true'}">
-
-    <joint name="head_camera_color_joint" type="fixed">
-      <origin xyz="0 0.015 0" rpy="0 0 0" />
-      <parent link="head_camera_link" />
-      <child link="head_camera_color_frame" />
-    </joint>
-
-    <link name="head_camera_color_frame"/>
-
-    <joint name="head_camera_color_optical_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${radians(-90)} 0 ${radians(-90)}" />
-      <parent link="head_camera_color_frame" />
-      <child link="head_camera_color_optical_frame" />
-    </joint>
-
-    <link name="head_camera_color_optical_frame"/>
-
+    <!-- 追記箇所 -->
   </xacro:if>
 
 </robot>
